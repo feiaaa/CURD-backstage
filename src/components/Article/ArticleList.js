@@ -1,7 +1,8 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+// import PropTypes from 'prop-types';
 import styles from './Article.less';
 // 采用antd的UI组件
-import { Table, messarticleType, Popconfirm,Button } from 'antd';
+import { Table,  Popconfirm,Button } from 'antd';
 
 // 采用 stateless 的写法
 const ArticleList = ({
@@ -20,6 +21,14 @@ const ArticleList = ({
     title: '类别',
     dataIndex: 'articleType',
     key: 'articleType',
+  }, {
+    title: '文章名字',
+    dataIndex: 'articleName',
+    key: 'articleName',
+  // }, {
+  //   title: 'openId',
+  //   dataIndex: 'openId',
+  //   key: 'openId',
   }, {
     title: '链接',
     dataIndex: 'urlAddress',

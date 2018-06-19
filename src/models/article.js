@@ -1,4 +1,6 @@
-
+import { hashHistory } from 'dva/router';
+import { query } from '../services/article';
+//import * as articleService from '../services/article';
 export default {
 
   namespace: 'article',
@@ -14,12 +16,33 @@ export default {
   },
 
   subscriptions: {
-    setup({ dispatch, history }) {  // eslint-disable-line
+    setup({ dispatch, history }) {
+      history.listen(location => {
+        if (location.pathname === '/articleList') {
+          dispatch({
+            type: 'query',
+            payload: {}
+          });
+        }
+      });
     },
   },
 
   effects: {
-    *query(){},
+    *query({ payload }, { select, call, put }) {
+      yield put({ type: 'showLoading' });
+      const { data } = yield call(query);
+      if (data) {
+        yield put({
+          type: 'querySuccess',
+          payload: {
+            list: data.data,
+            total: data.page.total,
+            current: data.page.current
+          }
+        });
+      }
+    },
     *create(){},
     *'delete'(){},
     *update(){},
@@ -30,7 +53,37 @@ export default {
   },
 
   reducers: {
-    querySuccess(){},
+    showLoading(state, action){
+      return { ...state, loading: true };
+    },
+    // querySuccess(state){
+    //   const mock={
+    //     total: 3,
+    //     current: 1,
+    //     loading: false,
+    //     list:[
+    //       {
+    //         articleTime: '2015',
+    //         articleType: '科技博客',
+    //         urlAddress: 'https://www.baidu.com/',
+    //       },
+    //       {
+    //         articleTime: '2016',
+    //         articleType: '科技博客',
+    //         urlAddress: 'https://www.baidu.com/',
+    //       },
+    //       {
+    //         articleTime: '2017',
+    //         articleType: '生活笔记',
+    //         urlAddress: 'https://www.baidu.com/',
+    //       },
+    //     ]
+    //   }
+    //   return {...state, ...mock, loading: false};
+    // },
+    querySuccess(state, action){
+      return {...state, ...action.payload, loading: false};
+    },
     createSuccess(){},
     deleteSuccess(){},
     updateSuccess(){},

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component} from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'dva';
 import styles from '../components/Article/Article.less';
 //组件(暂时都没实现)
@@ -6,29 +7,17 @@ import styles from '../components/Article/Article.less';
 import ArticleList from '../components/Article/ArticleList';
 import ArticleSearch from '../components/Article/ArticleSearch';
 import ArticleModal from '../components/Article/ArticleModal';
-function ArticlePage() {
+function ArticlePage({location, dispatch, article}) {
+  const {
+    loading, list, total, current,
+    currentItem, modalVisible, modalType
+  } = article;
   const articleSearchProps = {};
   const articleListProps = {
-    total: 3,
-    current: 1,
-    loading: false,
-    dataSource: [
-      {
-        articleTime: '2015',
-        articleType: '科技博客',
-        urlAddress: 'https://www.baidu.com/',
-      },
-      {
-        articleTime: '2016',
-        articleType: '科技博客',
-        urlAddress: 'https://www.baidu.com/',
-      },
-      {
-        articleTime: '2017',
-        articleType: '生活笔记',
-        urlAddress: 'https://www.baidu.com/',
-      },
-    ],
+    total,
+    current,
+    loading,
+    dataSource: list,
   };
   const articleModalProps = {};
   return (
@@ -44,6 +33,9 @@ function ArticlePage() {
 }
 
 ArticlePage.propTypes = {
+  article: PropTypes.object,
 };
-
-export default connect()(ArticlePage);
+function mapStateToProps({ article }) {
+  return {article};
+}
+export default connect(mapStateToProps)(ArticlePage);

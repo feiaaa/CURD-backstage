@@ -1,5 +1,5 @@
 import fetch from 'dva/fetch';
-
+//import fetchJsonp from 'fetch-jsonp';//用于解决跨域问题，无需跨域就用上一个
 function parseJSON(response) {
   return response.json();
 }
@@ -25,6 +25,6 @@ export default function request(url, options) {
   return fetch(url, options)
     .then(checkStatus)
     .then(parseJSON)
-    .then(data => ({ data }))
-    .catch(err => ({ err }));
+    .then((data) => ({ data }))
+    .catch((err) => ({ err }));
 }
