@@ -9,6 +9,11 @@ npm start
 ### 目前可以看到的网页
 http://localhost:3005/#/articleList
 
+
+### 问题处理
+- 如果在打开时遇上 No 'Access-Control-Allow-Origin' header is present on the requested resource,
+请去下载插件[Allow-Control-Allow-Origin谷歌跨域扩展插件](https://download.csdn.net/download/zz975896590/10266971)
+
 ### 文档
 - [关于dva需要的最小知识集](https://github.com/dvajs/dva-knowledgemap)
 

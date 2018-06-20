@@ -14,9 +14,10 @@ module.exports = {
     const data = mockjs.mock({
       'data|100': [{
         'id|+1': 1,
-        'articleName': '@cname',
-        'articleTime': '@date',
-        'articleType': '@INT(1,5)',
+        'title': '@cname',
+        'subTitle': '@cname',
+        'time': '@date',
+        'development': '@INT(1,5)',
         'urlAddress': '@url'
       }],
       page: {

@@ -1,6 +1,6 @@
 import { hashHistory } from 'dva/router';
-import { query } from '../services/article';
-//import * as articleService from '../services/article';
+//import { query } from '../services/mockjs/article';//mockjs
+import * as articleService from '../services/requestServer/article';//server
 export default {
 
   namespace: 'article',
@@ -29,23 +29,43 @@ export default {
   },
 
   effects: {
-    *query({ payload }, { select, call, put }) {
+    *query({ payload:{ page =  0 } }, { select, call, put }) {
       yield put({ type: 'showLoading' });
-      const { data } = yield call(query);
-      if (data) {
+      const { data } = yield call(articleService.query,{page});
+      console.log(data,'data in model article')
+      if (data.code===1000) {
         yield put({
           type: 'querySuccess',
           payload: {
-            list: data.data,
-            total: data.page.total,
-            current: data.page.current
+            list: data.result,
+            total: parseInt(data.msg),
+            current: page
           }
         });
       }
     },
-    *create(){},
-    *'delete'(){},
-    *update(){},
+    //编辑
+    *patch({ payload: { id, values } }, { call, put }) {
+      yield call(articleService.patch, id, values);
+
+      yield put({ type: 'reload' });
+    },
+    //创建
+    *create({ payload: values }, { call, put }) {
+      yield call(articleService.create, values);
+      yield put({ type: 'reload' });
+    },
+    //删除
+    *remove({ payload: id }, { call, put }) {
+      yield call(articleService.remove, id);
+      yield put({ type: 'reload' });
+    },
+    //刷新
+    *reload(action, { put, select }) {
+      console.log("reload");
+      const page = yield select(state => state.article.page);
+      yield put({ type: 'fetch', payload: { page } });
+    },
 
     *fetch({ payload }, { call, put }) {  // eslint-disable-line
       yield put({ type: 'save' });
@@ -56,31 +76,6 @@ export default {
     showLoading(state, action){
       return { ...state, loading: true };
     },
-    // querySuccess(state){
-    //   const mock={
-    //     total: 3,
-    //     current: 1,
-    //     loading: false,
-    //     list:[
-    //       {
-    //         articleTime: '2015',
-    //         articleType: '科技博客',
-    //         urlAddress: 'https://www.baidu.com/',
-    //       },
-    //       {
-    //         articleTime: '2016',
-    //         articleType: '科技博客',
-    //         urlAddress: 'https://www.baidu.com/',
-    //       },
-    //       {
-    //         articleTime: '2017',
-    //         articleType: '生活笔记',
-    //         urlAddress: 'https://www.baidu.com/',
-    //       },
-    //     ]
-    //   }
-    //   return {...state, ...mock, loading: false};
-    // },
     querySuccess(state, action){
       return {...state, ...action.payload, loading: false};
     },

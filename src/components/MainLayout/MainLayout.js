@@ -6,7 +6,7 @@ import BreadcrumbCustom from './BreadcrumbCustom.js';
 // 包含默认头部的布局组件
 function MainLayout({ children, location }) {
   return (
-    <div className={[styles.normal,styles.mainOverflow]}>
+    <div className={`${styles.normal} ${styles.mainOverflow}`}>
       <div className={styles.sideBar}><SideMenu location={location} /></div>
       <div className={styles.content}>
 
