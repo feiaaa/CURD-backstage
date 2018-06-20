@@ -2,14 +2,14 @@ import React, { Component} from 'react';
 // import PropTypes from 'prop-types';
 import styles from './MainLayout.less';
 
-function SideMenu() {
+function BreadcrumbCustom() {
 
 
 
   return (
     <div className={styles.normal}>
-      SideMenu compoment
+      BreadcrumbCustom compoment
     </div>
   );
 }
-export default SideMenu;
+export default BreadcrumbCustom;

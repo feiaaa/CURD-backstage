@@ -16,7 +16,7 @@ module.exports = {
         'id|+1': 1,
         'articleName': '@cname',
         'articleTime': '@date',
-        'articleType': '@INT(1,100)',
+        'articleType': '@INT(1,5)',
         'urlAddress': '@url'
       }],
       page: {

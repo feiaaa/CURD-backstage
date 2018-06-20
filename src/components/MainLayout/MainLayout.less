@@ -1,0 +1,142 @@
+// style 公共样式 start
+
+//字体大小
+@font-size-XL:0.5rem;
+@font-size-L:0.45rem;
+@font-size-M:0.4rem;
+@font-size-S:0.35rem;
+@font-size-SM:0.3rem;
+
+//数字大小
+@num-size-XL:1.2rem;
+@num-size-L:0.8rem;
+@num-size-M:0.5rem;
+@num-size-S:0.4rem;
+
+//颜色
+@color-white:#fff;
+@color-darkgrey:#333;
+@color-middlegrey:#666;
+@color-lightgrey:#999;
+@color-cgrey:#ccc;
+@color-line:#e1eeed;
+@color-add-blue:#12c9df;
+@color-add-red:#ff6767;
+@color-add-green:#1cd8d2;
+@color-camel:#dd6741;
+@color-add-gray:#efeff5 ;
+@color-green:#23bb64;
+
+
+
+body, ul, li, a, p, h2, h3, textarea, button, input, select,span {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  color: @color-middlegrey;
+  &:focus {
+    outline: none;
+  }
+}
+body{
+  font-size:12px;
+  font-family:"Helvetica Neue", Helvetica, sans-serif;
+  // text-align: center;
+  background:#f1f7f7;
+}
+img {
+  display: block;
+  width:100%;
+}
+/* 单行截字，多出用省略号 */
+.ellipsis{
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;}
+/* 多行截字，多出用省略号(注意此方法只适用于H5浏览器) */
+.line-clamp{
+  overflow : hidden;
+  text-overflow:ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+address,cite,dfn,var,em,i,strong {font-style: normal;}
+/* 清除浮动 */
+.clearfix:after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}
+.clearfix{
+  display:inline-block;
+  zoom: 1;
+}
+
+
+.flexCont {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+.flexItem {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  width: 0;
+}
+.flexItem2 {
+  -webkit-box-flex: 2;
+  -webkit-flex: 2;
+  flex: 2;
+  width: 0;
+}
+.flexItem8 {
+  -webkit-box-flex: 8;
+  -webkit-flex: 8;
+  flex: 8;
+  width: 0;
+}
+.flexSimple {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+
+//mainlayout
+.header{
+  height: 140px;
+  padding: 10px;
+  background:@color-white;
+  border-bottom: 1px lightgray solid;
+  .logo{
+    background: url(../../../static/logo.png) top left no-repeat;
+    height: 128px;
+    //position: fixed;
+    width:288px;
+    padding-left: 128px;
+    //left: 30px;top:35px;
+    // margin: 30px;
+    line-height:120px;
+    color:@color-camel;
+    font-size: 20px;
+  }
+  .info{
+    position: fixed;
+    right: 30px;
+    top:10px;
+    text-align: right;
+    margin: 10px 0;
+    height: 60px;
+    line-height:60px;
+    vertical-align: middle;
+    .buttonExit{  color:#23bb64;line-height:60px; display:block;float: right;}
+
+   }
+
+}
