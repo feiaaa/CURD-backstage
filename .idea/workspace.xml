@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b8bb5f9-23f8-4120-99b9-dc12125e0c09" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/services/mockjs/article.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/services/requestServer/article.js" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/mock/article.js" afterPath="$PROJECT_DIR$/mock/article.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/Article/ArticleList.js" afterPath="$PROJECT_DIR$/src/components/Article/ArticleList.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/Article/ArticleModal.js" afterPath="$PROJECT_DIR$/src/components/Article/ArticleModal.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainLayout/MainLayout.js" afterPath="$PROJECT_DIR$/src/components/MainLayout/MainLayout.js" />
-      <change beforePath="$PROJECT_DIR$/src/models/article.js" afterPath="$PROJECT_DIR$/src/models/article.js" />
-      <change beforePath="$PROJECT_DIR$/src/routes/ArticlePage.js" afterPath="$PROJECT_DIR$/src/routes/ArticlePage.js" />
-      <change beforePath="$PROJECT_DIR$/src/services/article.js" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/utils/config.js" afterPath="$PROJECT_DIR$/src/utils/config.js" />
-      <change beforePath="$PROJECT_DIR$/src/utils/request-post.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/utils/request.js" afterPath="$PROJECT_DIR$/src/utils/request.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -379,12 +365,12 @@
       <workItem from="1529294269619" duration="6330000" />
       <workItem from="1529375579883" duration="22805000" />
       <workItem from="1529462728554" duration="21797000" />
-      <workItem from="1529505297780" duration="4406000" />
+      <workItem from="1529505297780" duration="4471000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74098000" />
+    <option name="totallyTimeSpent" value="74163000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
