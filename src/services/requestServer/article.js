@@ -10,7 +10,8 @@ export async function query(params) {
     },{
       method:'GET',
       header: {
-        'content-type': 'application/x-www-form-urlencoded'
+        'content-type': 'application/x-www-form-urlencoded',
+        'Access-Control-Allow-Origin': '*'
       },
     }
   );
@@ -26,7 +27,8 @@ export async function create(params) {
     },{
       method:'POST',
       header: {
-        'content-type': 'application/x-www-form-urlencoded'
+        'content-type': 'application/x-www-form-urlencoded',
+        'Access-Control-Allow-Origin': '*'
       },
     }
   );
@@ -42,7 +44,8 @@ export function patch(id, values) {
     },{
       method:'POST',
       header: {
-        'content-type': 'application/x-www-form-urlencoded'
+        'content-type': 'application/x-www-form-urlencoded',
+        'Access-Control-Allow-Origin': '*'
       },
     }
   );
@@ -58,7 +61,8 @@ export function remove(id) {
     },{
       method:'POST',
       header: {
-        'content-type': 'application/x-www-form-urlencoded'
+        'content-type': 'application/x-www-form-urlencoded',
+        'Access-Control-Allow-Origin': '*'
       },
     }
   );
