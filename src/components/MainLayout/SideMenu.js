@@ -3,7 +3,7 @@ import { Menu,Button,Icon } from 'antd';
 import { Link } from 'dva/router';
 const SubMenu = Menu.SubMenu;
 function SideMenu({location}) {
-
+  console.log(location,"location",location.pathname,"location.pathname",[location.pathname],"[location.pathname] in sidebar");
 
 
   return (

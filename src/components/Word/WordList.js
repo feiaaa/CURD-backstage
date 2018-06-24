@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'dva';
 import styles from './Word.less';
@@ -8,7 +8,7 @@ import styles from './Word.less';
 import { Table,  Popconfirm,Button,Icon } from 'antd';
 
 
-function WordList({location, dispatch,list: dataSource, Word,total,loading,current}) {
+function WordList({location, dispatch,list: dataSource, word,total,loading,current}) {
   //CURD funtion start
   function createHandler(values) {
     // dispatch({
@@ -30,24 +30,24 @@ function WordList({location, dispatch,list: dataSource, Word,total,loading,curre
   }
   //CURD function end
   const columns = [{
-    title: '时间',
+    title: '单词',
     dataIndex: 'time',
     key: 'time',
 
   }, {
-    title: '类别',
+    title: '发音（平假名）+声调',
     dataIndex: 'development',
     key: 'development',
   }, {
-    title: '主标题',
+    title: '中文',
     dataIndex: 'title',
     key: 'title',
   }, {
-    title: '副标题',
+    title: '日文例句/短语',
     dataIndex: 'subTitle',
     key: 'subTitle',
   }, {
-    title: '链接',
+    title: '例句/短语注释',
     dataIndex: 'urlAddress',
     key: 'urlAddress',
     render: (text,record) => <a href={record.urlAddress} target="_blank">{text}</a>,

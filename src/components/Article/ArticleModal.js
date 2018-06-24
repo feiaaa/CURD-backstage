@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, Icon, Modal,message } from 'antd';
-
+import { Form, Input, Button, Icon, Modal,message,DatePicker } from 'antd';
+import moment from 'moment';
 
 //var department;
 const { TextArea } = Input;
 const FormItem = Form.Item;
 const data = [];
+const dateFormat = 'YYYY/MM/DD';
 class ArticleModal extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       visible: false,
-      menusStat:'',
-      menusChg:false,
+
     };
   }
   componentDidMount(){
     this.setState({
-      menusStat:this.props.record.department||'',
+
     })
   }
   showModelHandler = (e) => {
@@ -38,12 +38,14 @@ class ArticleModal extends Component {
   okHandler = () => {
     const { onOk } = this.props;
     this.props.form.validateFields((err, values) => {
+      // const time=values['date-picker'].format('YYYY-MM-DD');
+      // console.log(time,'time');
       if (!err) {
         var params={
           title:values.title,
           subTitle:values.subTitle,
           development:values.development,
-          time:values.time,
+          time:values.time.format(dateFormat),
           urlAddress:values.urlAddress,
         }
         //console.log(values,"values in okHandler",params,"params in okHandler station");
@@ -52,23 +54,13 @@ class ArticleModal extends Component {
       }
     });
   };
-  handleButtonClick(e) {
-    message.info('点右边三角选择');
-
-  }
-  handleMenuClick(e) {
-    this.setState({
-      menusStat:e.key,
-      menusChg:true,
-    });
-    this.props.record.department=e.key;
-  }
   render(){
 
 
     const { children } = this.props;
     const { getFieldDecorator } = this.props.form;
     var { title,subTitle,development,time,urlAddress} = this.props.record;
+    const today=new Date().toLocaleDateString();
     const formItemLayout = {
       labelCol: { span: 6 },
       wrapperCol: { span: 14 },
@@ -113,9 +105,11 @@ class ArticleModal extends Component {
             </FormItem>
             <FormItem {...formItemLayout} label="时间" key="time">
               {getFieldDecorator('time',{
-                initialValue: time,
+                rules: [{required: true }],
+                initialValue: moment(time==undefined?today:time, dateFormat),
               })(
-                <Input placeholder="请输入时间"/>,
+                <DatePicker onChange={this.onChange}/>,
+
               )}
             </FormItem>
             <FormItem {...formItemLayout} label="Url" key="urlAddress">
@@ -123,7 +117,7 @@ class ArticleModal extends Component {
                 rules: [{required: true }],
                 initialValue: urlAddress,
               })(
-                <Input placeholder="请输入url"/>,
+                <Input placeholder="请输入地址"/>,
               )}
             </FormItem>
 
