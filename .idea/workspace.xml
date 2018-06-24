@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b8bb5f9-23f8-4120-99b9-dc12125e0c09" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/mock/work.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/components/Article/ArticleList.js" afterPath="$PROJECT_DIR$/src/components/Article/ArticleList.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/Article/ArticleModal.js" afterPath="$PROJECT_DIR$/src/components/Article/ArticleModal.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/Article/ArticleSearch.js" afterPath="$PROJECT_DIR$/src/components/Article/ArticleSearch.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainLayout/BreadcrumbCustom.js" afterPath="$PROJECT_DIR$/src/components/MainLayout/BreadcrumbCustom.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainLayout/MainLayout.js" afterPath="$PROJECT_DIR$/src/components/MainLayout/MainLayout.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainLayout/SideMenu.js" afterPath="$PROJECT_DIR$/src/components/MainLayout/SideMenu.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/Word/WordList.js" afterPath="$PROJECT_DIR$/src/components/Word/WordList.js" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/utils/config.js" afterPath="$PROJECT_DIR$/src/utils/config.js" />
-    </list>
+    <list default="true" id="0b8bb5f9-23f8-4120-99b9-dc12125e0c09" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -441,12 +429,12 @@
       <workItem from="1529462728554" duration="21797000" />
       <workItem from="1529505297780" duration="4471000" />
       <workItem from="1529647026515" duration="12228000" />
-      <workItem from="1529783484529" duration="6708000" />
+      <workItem from="1529783484529" duration="6899000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93099000" />
+    <option name="totallyTimeSpent" value="93290000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
