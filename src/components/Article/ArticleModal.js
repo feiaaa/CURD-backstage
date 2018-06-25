@@ -44,6 +44,7 @@ class ArticleModal extends Component {
           development:values.development,
           time:values.time.format(dateFormat),
           urlAddress:values.urlAddress,
+          id:values.id,
         }
         //console.log(values,"values in okHandler",params,"params in okHandler station");
         onOk(params);
@@ -56,7 +57,7 @@ class ArticleModal extends Component {
 
     const { children } = this.props;
     const { getFieldDecorator } = this.props.form;
-    var { title,subTitle,development,time,urlAddress} = this.props.record;
+    var { id,title,subTitle,development,time,urlAddress} = this.props.record;
     const today=new Date().toLocaleDateString();
     const formItemLayout = {
       labelCol: { span: 6 },
@@ -83,6 +84,7 @@ class ArticleModal extends Component {
                 <Input placeholder="请输入主标题"/>,
               )}
             </FormItem>
+
             <FormItem {...formItemLayout} label="副标题" key="subTitle">
               {getFieldDecorator('subTitle',{
                 rules: [{required: true }],
@@ -117,7 +119,13 @@ class ArticleModal extends Component {
                 <Input placeholder="请输入地址"/>,
               )}
             </FormItem>
-
+            <FormItem {...formItemLayout}  key="id">
+              {getFieldDecorator('id',{
+                initialValue: id,
+              })(
+                <Input disabled={true} type="hidden"/>,
+              )}
+            </FormItem>
 
           </Form>
         </Modal>

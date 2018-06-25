@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { connect } from 'dva';
 import styles from './Word.less';
 // import WordSearch from './WordSearch';
@@ -9,7 +9,7 @@ import { Table,  Popconfirm,Button,Icon } from 'antd';
 
 
 function WordList({location, dispatch,list: dataSource, word,total,loading,current}) {
-  //CURD funtion start
+  // CURD funtion start
   function createHandler(values) {
     // dispatch({
     //   type: 'Word/create',
@@ -28,7 +28,7 @@ function WordList({location, dispatch,list: dataSource, word,total,loading,curre
     //   payload: { id, values },
     // });
   }
-  //CURD function end
+  // CURD function end
   const columns = [{
     title: '单词',
     dataIndex: 'time',
@@ -50,7 +50,6 @@ function WordList({location, dispatch,list: dataSource, word,total,loading,curre
     title: '例句/短语注释',
     dataIndex: 'urlAddress',
     key: 'urlAddress',
-    render: (text,record) => <a href={record.urlAddress} target="_blank">{text}</a>,
   }, {
     title: '操作',
     key: 'operation',
@@ -79,8 +78,8 @@ function WordList({location, dispatch,list: dataSource, word,total,loading,curre
       <div className={`${styles.searchForm} ${styles.overflow}`}>
         {/*<WordSearch/>*/}
         {/*<WordModal record={{}} onOk={createHandler}>*/}
-          {/*<Button className={styles.greenButton} >*/}
-            {/*<Icon type="plus" />新增</Button>*/}
+          <Button type="primary" >
+            <Icon type="plus" />新增</Button>
         {/*</WordModal>*/}
       </div>
       <Table

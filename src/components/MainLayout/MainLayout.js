@@ -25,7 +25,7 @@ function MainLayout({ children, location }) {
 }
 
 MainLayout.propTypes = {
-  //children: PropTypes.element.isRequired,
+  //children: PropTypes.isRequired,
   location: PropTypes.object,
 };
 

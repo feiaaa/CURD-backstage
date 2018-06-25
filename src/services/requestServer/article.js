@@ -22,7 +22,7 @@ export async function create(params) {
 
   return request.post(`${target}/cat/Articles`,
     {
-      type:'create',
+      type:'add',
       data:params,
     },{
       method:'POST',
@@ -36,13 +36,12 @@ export async function create(params) {
 //编辑
 export function patch(id, values) {
   console.log(id, values,'params in patch')
-  return request.post(`${target}/cat/Articles`,
+  return request.post(`${target}/cat/Articles?type=update&data=`+JSON.stringify(values),
     {
-      type:'update',
-      data:values,
-      id:id
-    },{
-      method:'POST',
+    //   type:222222,
+    //   id:11111
+    // },{
+     method:'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
         'Access-Control-Allow-Origin': '*'
@@ -56,7 +55,7 @@ export function remove(id) {
   console.log(id,'remove')
   return request.post(`${target}/cat/Articles`,
     {
-
+      type:'delete',
       id:id
     },{
       method:'POST',

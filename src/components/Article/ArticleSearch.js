@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'dva';
 import { Button, Input, DatePicker, Form } from 'antd';
 import styles from '../MainLayout/MainLayout.less';
@@ -57,8 +56,8 @@ class ArticleSearch extends Component {
               <Input placeholder="请输入副标题" style={{ width: '161px' }} />,
             )}
           </FormItem>
-          <FormItem label="大类" key="phone">
-            {getFieldDecorator('phone')(
+              <FormItem label="大类" key="phone">
+                {getFieldDecorator('phone')(
               <Input placeholder="请输入大类" style={{ width: '161px' }} />,
             )}
           </FormItem>

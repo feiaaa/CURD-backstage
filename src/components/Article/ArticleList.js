@@ -50,7 +50,7 @@ function ArticleList({location, dispatch,list: dataSource, article,total,loading
     title: '链接',
     dataIndex: 'urlAddress',
     key: 'urlAddress',
-    render: (text,record) => <a href={record.urlAddress} target="_blank">{text}</a>,
+    render: (text,record) => <a href={record.urlAddress} target="_blank" rel='external nofollow noopener noreferrer'>{text}</a>,
   }, {
     title: '操作',
     key: 'operation',

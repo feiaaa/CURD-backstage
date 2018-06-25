@@ -38,7 +38,7 @@ export default {
           type: 'querySuccess',
           payload: {
             list: data.result,
-            total: parseInt(data.msg),
+            total: parseInt(data.msg, 10),
             current: page
           }
         });
@@ -53,7 +53,7 @@ export default {
     //创建
     *create({ payload: values }, { call, put }) {
       yield call(articleService.create, values);
-      yield put({ type: 'reload' });
+      //yield put({ type: 'reload' });
     },
     //删除
     *remove({ payload: id }, { call, put }) {
@@ -64,7 +64,7 @@ export default {
     *reload(action, { put, select }) {
       console.log("reload");
       const page = yield select(state => state.article.page);
-      yield put({ type: 'fetch', payload: { page } });
+      yield put({ type: 'query', payload: { page } });
     },
 
     *fetch({ payload }, { call, put }) {  // eslint-disable-line
