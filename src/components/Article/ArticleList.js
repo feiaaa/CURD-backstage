@@ -32,11 +32,12 @@ function ArticleList({location, dispatch,list: dataSource, article,total,loading
     title: '时间',
     dataIndex: 'time',
     key: 'time',
-
+    width:120,
   }, {
     title: '类别',
     dataIndex: 'development',
     key: 'development',
+    width:120,
   }, {
     title: '主标题',
     dataIndex: 'title',
@@ -78,7 +79,7 @@ function ArticleList({location, dispatch,list: dataSource, article,total,loading
       <div className={`${styles.searchForm} ${styles.overflow}`}>
         <ArticleSearch/>
         <ArticleModal record={{}} onOk={createHandler}>
-          <Button className={styles.greenButton} >
+          <Button type="primary">
             <Icon type="plus" />新增</Button>
         </ArticleModal>
       </div>

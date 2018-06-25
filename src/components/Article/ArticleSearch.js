@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'dva';
 import { Button, Input, DatePicker, Form } from 'antd';
-import styles from './Article.less';
+import styles from '../MainLayout/MainLayout.less';
 
 
 const FormItem = Form.Item;
@@ -62,7 +62,7 @@ class ArticleSearch extends Component {
               <Input placeholder="请输入大类" style={{ width: '161px' }} />,
             )}
           </FormItem>
-          <Button htmlType="submit" className={`${styles.mgl10} ${styles.greenButton}`}>搜索</Button>
+          <Button htmlType="submit" type="primary">搜索</Button>
         </div>
 
       </Form>

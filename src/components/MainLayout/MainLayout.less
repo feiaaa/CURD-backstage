@@ -127,7 +127,7 @@ address,cite,dfn,var,em,i,strong {font-style: normal;}
     a{font-size: 18px;}
     :global(.ant-menu-inline .ant-menu-item:after),:global(.ant-menu-vertical .ant-menu-item:after){border: 0;}
     :global(.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected){background-color: @color-camel;}
-
+    :global(.ant-btn-primary){background: @color-camel !important;color:@color-white}
 
   }
   .content{
@@ -137,6 +137,13 @@ address,cite,dfn,var,em,i,strong {font-style: normal;}
     height: 100%;
 
   }
+  .breadCrumb{
+    background: @color-white;
+    margin: 20px;
+    width: calc(~'100% - 18.75% - 40px');
+    padding: 20px;
+
+  }
   .main {
     padding: 20px;//40
     width: calc(~'100% - 18.75% - 40px');
@@ -144,9 +151,19 @@ address,cite,dfn,var,em,i,strong {font-style: normal;}
     background: @color-white;
     margin: 20px;//40
     height: 80%;
-    min-height: 90vh;
     border-radius: 3px;
-    //overflow-y: scroll;
+    overflow-y: scroll;
+    .searchForm{
+      margin-bottom: 10px;
+      //:global(.ant-form-item){margin-bottom: 0;}
+      .searchLeft{
+        width: 87%;float: left;
+        :global(.ant-row){display: inline-block }
+
+      }
+      .searchRight{ text-align: right; float: right; line-height: 32px}
+
+    }
   }
   .header{
     height: 140px;
@@ -174,9 +191,10 @@ address,cite,dfn,var,em,i,strong {font-style: normal;}
       height: 60px;
       line-height:60px;
       vertical-align: middle;
-      .buttonExit{  color:#23bb64;line-height:60px; display:block;float: right;}
+      .buttonExit{  color:@color-camel;line-height:60px; display:block;float: right;}
 
     }
+
 
   }
 }

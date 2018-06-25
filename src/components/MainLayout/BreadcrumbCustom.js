@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Breadcrumb, Icon } from 'antd';
-
+import styles from './MainLayout.less';
 // var notes='';
 class BreadcrumbCustom extends Component {
   constructor(props) {
@@ -36,7 +36,7 @@ class BreadcrumbCustom extends Component {
           break;
 
         default:
-          names = '一级菜单';
+          names = '';
           break;
       }
     } else {
@@ -48,7 +48,7 @@ class BreadcrumbCustom extends Component {
           names = '题目';
           break;
         default:
-          names = '二级菜单';
+          names = '';
           break;
       }
     }
@@ -58,15 +58,11 @@ class BreadcrumbCustom extends Component {
   render() {
     const routes = [
       {
-        path:'1级',
-        breadcrumbName:'1级',
-        // path: this.getbreadcrumbPath(location.hash, 1),
-        // breadcrumbName: this.getbreadcrumbName(location.hash, 1),
+        path: this.getbreadcrumbPath(window.location.hash, 1),
+        breadcrumbName: this.getbreadcrumbName(window.location.hash, 1),
       }, {
-        path:'2级',
-        breadcrumbName:'2级',
-        // path: this.getbreadcrumbPath(location.hash, 2),
-        // breadcrumbName: this.getbreadcrumbName(location.hash, 2),
+        path: this.getbreadcrumbPath(window.location.hash, 2),
+        breadcrumbName: this.getbreadcrumbName(window.location.hash, 2),
       }];
     function itemRender(route, params, routes, paths) {
       const last = routes.indexOf(route) === routes.length - 1;
@@ -81,9 +77,9 @@ class BreadcrumbCustom extends Component {
     //   notes='';
     // }
     return (
-      <div>
-        当前位置：
-        <Breadcrumb itemRender={itemRender} routes={routes} />
+      <div className={styles.flexCont}>
+        <span className={styles.flexItem}> 当前位置<Icon type="right" /></span>
+        <Breadcrumb className={styles.flexItem8} itemRender={itemRender} routes={routes} />
         {/*<label style={{color:'gray'}}>{notes}</label>*/}
       </div>
     );

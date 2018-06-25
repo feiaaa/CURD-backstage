@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu,Button,Icon } from 'antd';
+import { Menu,Icon } from 'antd';
 import { Link } from 'dva/router';
 const SubMenu = Menu.SubMenu;
 function SideMenu({location}) {

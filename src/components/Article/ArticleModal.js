@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, Icon, Modal,message,DatePicker } from 'antd';
+import { Form, Input,Modal,DatePicker } from 'antd';
 import moment from 'moment';
 
-//var department;
-const { TextArea } = Input;
 const FormItem = Form.Item;
-const data = [];
 const dateFormat = 'YYYY/MM/DD';
 class ArticleModal extends Component {
 
@@ -71,7 +68,7 @@ class ArticleModal extends Component {
           { children }
         </span>
         <Modal
-          title={this.props.record.title==undefined?'新增文章':'编辑文章'}
+          title={this.props.record.title===undefined?'新增文章':'编辑文章'}
           visible={this.state.visible}
           onOk={this.okHandler}
           onCancel={this.hideModelHandler}
@@ -106,7 +103,7 @@ class ArticleModal extends Component {
             <FormItem {...formItemLayout} label="时间" key="time">
               {getFieldDecorator('time',{
                 rules: [{required: true }],
-                initialValue: moment(time==undefined?today:time, dateFormat),
+                initialValue: moment(time===undefined?today:time, dateFormat),
               })(
                 <DatePicker onChange={this.onChange}/>,
 
