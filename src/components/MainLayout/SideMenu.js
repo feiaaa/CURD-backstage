@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import { Menu,Icon,Button } from 'antd';
 import { Link } from 'dva/router';
 import { connect } from 'dva';
+import styles from './MainLayout.less';
 const SubMenu = Menu.SubMenu;
 
 
@@ -17,6 +18,7 @@ class SideMenu extends Component {
     this.setState({
       collapsed: !this.state.collapsed,
     });
+
   }
   handleClick= (e) => {
     //console.log(e,'e');
@@ -25,13 +27,12 @@ class SideMenu extends Component {
   render() {
     //console.log(window.location.pathname,"window.location.pathname");
     return (
-      <div>
+      <div  className={this.state.collapsed ? styles.sideBarSmall:styles.sideBar}>
         <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
           <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} />
         </Button>
-        {/*//要改成es6*/}
         <Menu
-          selectedKeys={[window.location.pathname]}
+          selectedKeys={['/articleList']}
           mode="inline"
           theme="dark"
           defaultOpenKeys={['/articleList']}
@@ -40,7 +41,7 @@ class SideMenu extends Component {
         >
 
           <Menu.Item key="/articleList">
-            <Link to="/articleList"><Icon type="file-text"/>文章列表</Link>
+            <Link to="/articleList"><Icon type="file-text"/><span>文章列表</span></Link>
           </Menu.Item>
 
           <SubMenu key="/word" title={<span><Icon type="laptop" /><span>题库和单词管理</span></span>}>

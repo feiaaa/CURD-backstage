@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'dva';
 import { Button, Input, DatePicker, Form } from 'antd';
 import styles from '../MainLayout/MainLayout.less';
-
+const dateFormat = 'YYYY/MM/DD';
 
 const FormItem = Form.Item;
 const RangePicker = DatePicker.RangePicker;
@@ -26,7 +26,7 @@ class ArticleSearch extends Component {
         values = { ...fieldsValue, createTime: 0, endTime:Date.parse(new Date()) };
       }
       else{
-        values = { ...fieldsValue, createTime: rangeTimeValue[0].format('X') * 1000, endTime: rangeTimeValue[1].format('X') * 1000 };
+        values = { ...fieldsValue, createTime: rangeTimeValue[0].format(dateFormat), endTime: rangeTimeValue[1].format(dateFormat) };
       }
       delete values['range-time-picker'];
       console.log('搜索填入信息: ', values, values instanceof Array);
@@ -43,21 +43,21 @@ class ArticleSearch extends Component {
         <div className={styles.searchLeft}>
           <FormItem label="时间" key="time">
             {getFieldDecorator('range-time-picker')(
-              <RangePicker showTime format="YYYY-MM-DD HH:mm:ss" style={{ width: '400px' }} />,
+              <RangePicker format="YYYY-MM-DD" style={{ width: '400px' }} />,
             )}
           </FormItem>
-          <FormItem label="主标题" key="companyName">
-            {getFieldDecorator('companyName')(
+          <FormItem label="主标题" key="title">
+            {getFieldDecorator('title')(
               <Input placeholder="请输入主标题" style={{ width: '161px' }} />,
             )}
           </FormItem>
-          <FormItem label="副标题" key="name">
-            {getFieldDecorator('name')(
+          <FormItem label="副标题" key="subTitle">
+            {getFieldDecorator('subTitle')(
               <Input placeholder="请输入副标题" style={{ width: '161px' }} />,
             )}
           </FormItem>
-              <FormItem label="大类" key="phone">
-                {getFieldDecorator('phone')(
+              <FormItem label="大类" key="development">
+                {getFieldDecorator('development')(
               <Input placeholder="请输入大类" style={{ width: '161px' }} />,
             )}
           </FormItem>

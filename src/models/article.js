@@ -30,6 +30,7 @@ export default {
 
   effects: {
     *query({ payload:{ page =  0 } }, { select, call, put }) {
+      console.log(page,'page in query');
       yield put({ type: 'showLoading' });
       const { data } = yield call(articleService.query,{page});
       console.log(data,'data in model article')
@@ -53,7 +54,7 @@ export default {
     //创建
     *create({ payload: values }, { call, put }) {
       yield call(articleService.create, values);
-      //yield put({ type: 'reload' });
+      yield put({ type: 'reload' });
     },
     //删除
     *remove({ payload: id }, { call, put }) {
@@ -63,7 +64,7 @@ export default {
     //刷新
     *reload(action, { put, select }) {
       console.log("reload");
-      const page = yield select(state => state.article.page);
+      const page = yield select(state => state.article.current);
       yield put({ type: 'query', payload: { page } });
     },
 

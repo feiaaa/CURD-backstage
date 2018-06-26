@@ -44,7 +44,9 @@ class ArticleModal extends Component {
           development:values.development,
           time:values.time.format(dateFormat),
           urlAddress:values.urlAddress,
-          id:values.id,
+        };
+        if(values.id){
+          params.id=values.id
         }
         //console.log(values,"values in okHandler",params,"params in okHandler station");
         onOk(params);

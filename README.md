@@ -24,4 +24,4 @@ http://localhost:3005/#/articleList
 - [dva使用mockjs](http://doc.okbase.net/tjc1996/archive/262169.html)
 
 ### 
-2018-6-26：wordlist带bug，articlelist的编辑ok，新增和删除修复中
+2018-6-26：wordlist带bug，articlelist的搜索未做

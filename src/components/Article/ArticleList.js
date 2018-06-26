@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'dva';
-import styles from './Article.less';
+import styles from '../MainLayout/MainLayout.less';
 import ArticleSearch from './ArticleSearch';
 import ArticleModal from './ArticleModal';
 // 采用antd的UI组件
-import { Table,  Popconfirm,Button,Icon } from 'antd';
+import { Table,  Popconfirm,Button,Icon,message } from 'antd';
 
 
 function ArticleList({location, dispatch,list: dataSource, article,total,loading,current}) {
@@ -28,6 +28,19 @@ function ArticleList({location, dispatch,list: dataSource, article,total,loading
     });
   }
   //CURD function end
+  //点击页码换页面&填入数字回车跳页
+  function pageChangeHandler(page) {
+    console.log(page,'page');
+    var params={
+      page:page-1
+    };
+    dispatch({
+      type: 'article/query',
+      payload: params,
+    });
+
+  }
+
   const columns = [{
     title: '时间',
     dataIndex: 'time',
@@ -54,6 +67,7 @@ function ArticleList({location, dispatch,list: dataSource, article,total,loading
   }, {
     title: '操作',
     key: 'operation',
+    width:120,
     render: (text, record) => (
       <p>
         <ArticleModal record={record} onOk={editHandler.bind(null, record.id)}>
@@ -69,10 +83,11 @@ function ArticleList({location, dispatch,list: dataSource, article,total,loading
 
   // 定义分页对象
   const pagination = {
+    showQuickJumper:true,
     total,
     current,
     particleTypeSize: 10,
-    onChange: ()=>{},
+    onChange: (current)=>{pageChangeHandler(current)},
   };
   return (
     <div>
