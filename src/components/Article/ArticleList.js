@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'dva';
 import styles from '../MainLayout/MainLayout.less';
-import ArticleSearch from './ArticleSearch';
+//import ArticleSearch from './ArticleSearch';
 import ArticleModal from './ArticleModal';
 // 采用antd的UI组件
 import { Table,  Popconfirm,Button,Icon,message } from 'antd';
@@ -92,7 +92,7 @@ function ArticleList({location, dispatch,list: dataSource, article,total,loading
   return (
     <div>
       <div className={`${styles.searchForm} ${styles.overflow}`}>
-        <ArticleSearch/>
+        {/*<ArticleSearch/>*/}
         <ArticleModal record={{}} onOk={createHandler}>
           <Button type="primary">
             <Icon type="plus" />新增</Button>

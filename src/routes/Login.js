@@ -5,6 +5,8 @@ import { Button, Form, Input, Icon } from 'antd';
 import styles from './Login.less';
 import {login} from '../services/requestServer/login';
 
+import axios from "axios/index";
+
 const FormItem = Form.Item;
 
 const Login = ({
@@ -22,7 +24,9 @@ const Login = ({
       if (err) {
         return;
       }
+
       dispatch({ type: 'app/login', payload: value });
+
     });
   }
 
@@ -57,7 +61,7 @@ const Login = ({
                 })(<Input size="large" prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" onPressEnter={handleOk} placeholder="请输入密码" />)}
               </FormItem>
 
-              <Button className={styles.loginButton} type="primary" size="large" onClick={handleOk} loading={loginLoading}>
+              <Button type="primary" size="large" onClick={handleOk} loading={loginLoading}>
                 登录
               </Button>
 
