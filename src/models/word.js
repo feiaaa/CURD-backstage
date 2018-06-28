@@ -50,7 +50,6 @@ export default {
     //编辑
     *patch({ payload: { id, values } }, { call, put }) {
       yield call(wordService.patch, id, values);
-
       yield put({ type: 'reload' });
     },
     //创建

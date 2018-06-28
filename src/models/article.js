@@ -18,7 +18,7 @@ export default {
   subscriptions: {
     setup({ dispatch, history }) {
       history.listen(location => {
-        console.log(location,'location in articles');
+
         if (location.pathname === '/articleList') {
           dispatch({
             type: 'query',
@@ -31,10 +31,8 @@ export default {
 
   effects: {
     *query({ payload:{ page =  0 } }, { select, call, put }) {
-      console.log(page,'page in query');
       yield put({ type: 'showLoading' });
       const { data } = yield call(articleService.query,{page});
-      console.log(data,'data in model article')
       if (data.code===1000) {
         yield put({
           type: 'querySuccess',

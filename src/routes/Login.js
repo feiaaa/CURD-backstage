@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'dva';
 import { Button, Form, Input, Icon } from 'antd';
 import styles from './Login.less';
-import {login} from '../services/requestServer/login';
-
-import axios from "axios/index";
 
 const FormItem = Form.Item;
 

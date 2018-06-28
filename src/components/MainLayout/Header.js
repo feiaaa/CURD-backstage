@@ -1,6 +1,6 @@
-import React, { Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { routerRedux } from 'dva/router';
+// import { routerRedux } from 'dva/router';
 import { connect } from 'dva';
 import styles from './MainLayout.less';
 import { Popconfirm } from 'antd';

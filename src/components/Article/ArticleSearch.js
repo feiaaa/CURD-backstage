@@ -29,7 +29,6 @@ class ArticleSearch extends Component {
         values = { ...fieldsValue, createTime: rangeTimeValue[0].format(dateFormat), endTime: rangeTimeValue[1].format(dateFormat) };
       }
       delete values['range-time-picker'];
-      console.log('搜索填入信息: ', values, values instanceof Array);
       this.props.dispatch({
         type: 'article/query',
         payload:values,

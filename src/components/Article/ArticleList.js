@@ -4,7 +4,7 @@ import styles from '../MainLayout/MainLayout.less';
 //import ArticleSearch from './ArticleSearch';
 import ArticleModal from './ArticleModal';
 // 采用antd的UI组件
-import { Table,  Popconfirm,Button,Icon,message } from 'antd';
+import { Table,  Popconfirm,Button,Icon } from 'antd';
 
 
 function ArticleList({location, dispatch,list: dataSource, article,total,loading,current}) {
@@ -30,7 +30,6 @@ function ArticleList({location, dispatch,list: dataSource, article,total,loading
   //CURD function end
   //点击页码换页面&填入数字回车跳页
   function pageChangeHandler(page) {
-    console.log(page,'page');
     var params={
       page:page-1
     };

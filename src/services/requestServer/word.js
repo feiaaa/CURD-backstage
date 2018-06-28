@@ -5,12 +5,8 @@ import qs from 'qs';
 
 export async function query(values) {
   //普通axios尝试连接正式数据库(数据ok，跨域需要安装谷歌插件)
-
-  console.log(values,'values in word')
   return request.get(`${target}/cat/WordsPc?page=${values.page}`,
     {
-    //   page:params.page
-    // },{
       method:'GET',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
@@ -42,11 +38,12 @@ export async function create(values) {
 }
 //编辑
 export function patch(id, values) {
+  console.log(values,'values')
   var params = new URLSearchParams()
   params.append('type', 'update')
   params.append('data',JSON.stringify(values));
 
-  axios.post(`${target}/cat/WordsPc`,params, {
+  return axios.post(`${target}/cat/WordsPc`,params, {
     headers: {
       'content-type': 'application/x-www-form-urlencoded',
       'Access-Control-Allow-Origin': '*'

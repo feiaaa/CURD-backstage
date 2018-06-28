@@ -3,7 +3,7 @@ import { connect } from 'dva';
 import styles from '../MainLayout/MainLayout.less';
 import WordModal from './WordModal';
 // 采用antd的UI组件
-import { Table,  Popconfirm,Button,Icon,message } from 'antd';
+import { Table,  Popconfirm,Button,Icon } from 'antd';
 
 
 function WordList({location, dispatch,list: dataSource, word,total,loading,current}) {
@@ -50,19 +50,24 @@ function WordList({location, dispatch,list: dataSource, word,total,loading,curre
     title: '平假名发音',
     dataIndex: 'hiragana',
     key: 'hiragana',
-    width:'30%',
+    width:'20%',
     render: (text,record) => <span>{record.hiragana+record.tone}</span>,
   }, {
     title: '词性',
     dataIndex: 'speech',
     key: 'speech',
-    width:'30%',
+    width:'15%',
   }, {
     title: '中文',
     dataIndex: 'chinese',
     key: 'chinese',
-    width:'15%',
+    width:'20%',
  }, {
+    title: '课程',
+    dataIndex: 'lesson',
+    key: 'lesson',
+    width:'10%',
+  }, {
     title: '操作',
     key: 'operation',
     width:120,
@@ -99,7 +104,7 @@ function WordList({location, dispatch,list: dataSource, word,total,loading,curre
         columns={columns}
         dataSource={dataSource}
         loading={loading}
-        rowKey={record => record.id}
+        rowKey={record => record.wordId}
         pagination={pagination}
       />
     </div>

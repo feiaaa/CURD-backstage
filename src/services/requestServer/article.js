@@ -32,7 +32,6 @@ export async function query(values) {
 }
 //添加
 export async function create(values) {
-  console.log(values,'values in create')
 
   var params = new URLSearchParams()
   params.append('type', 'add')
@@ -45,10 +44,8 @@ export async function create(values) {
     },
   })
     .then(function (response) {
-      console.log(response,'server article js');
     })
     .catch(function (error) {
-      console.log(error);
     });
 }
 //编辑
@@ -64,10 +61,8 @@ export function patch(id, values) {
     },
   })
     .then(function (response) {
-      console.log(response);
     })
     .catch(function (error) {
-      console.log(error);
     });
 
 
@@ -85,10 +80,8 @@ export function remove(id) {
     },
   })
     .then(function (response) {
-      console.log(response);
     })
     .catch(function (error) {
-      console.log(error);
     });
 
 }
