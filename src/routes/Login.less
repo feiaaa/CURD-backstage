@@ -1,0 +1,105 @@
+@import  '../components/MainLayout/MainLayout.less' ; //导入公共样式
+.normal {
+  font-family: Georgia, sans-serif;
+  margin-top: 3em;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: normal;
+  letter-spacing: -1px;
+}
+
+.welcome {
+  height: 328px;
+  background: url(../assets/yay.jpg) no-repeat center 0;
+  background-size: 388px 328px;
+}
+
+.list {
+  font-size: 1.2em;
+  margin-top: 1.8em;
+  list-style: none;
+  line-height: 1.5em;
+}
+
+.list code {
+  background: #f7f7f7;
+}
+
+//login
+  .loginBg{
+      background:radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);// #001529;
+      width:100% ;
+      height:100% ;
+      z-index: -1;
+  }
+  .login{
+     display: table;
+    // display:flex;
+    width:100% ;
+    height:100% ;
+
+
+  };
+  .login1{
+    display: table-cell;
+  vertical-align: middle;
+  }
+  .loginView{
+    width: 30%;
+    height: 30%;min-height: 250px;
+    max-width:560px;max-height:427px;
+
+
+    padding: 3%;
+    margin: auto;
+
+  };
+  .loginHead{
+    width:100%;
+     height: 64px ;
+     margin-bottom: 10px;
+    display: table;
+    // display: flex ;
+    // justifyContent: center ;
+    // alignItems: flex-end ;
+    background: url(../../static/logo.png) no-repeat;
+    background-position: 12% 0px;
+    background-size: contain;
+    font-size: 2em;
+    line-height: 64px;
+    color:#dd6741;
+    text-align: center;
+  };
+  .loginImg{
+    width:40px;
+    marginRight:8px;
+  };
+  .loginText{
+    fontSize:18px
+  };
+  .loginBody{
+    height: 80% ;
+    width:100%;
+    padding: 20px;border-radius: 3px;
+    display: table;
+    background:white;
+    // display: flex ;
+    // justifyContent: center ;
+    // alignItems: center ;
+    form{width: 80%; margin: 0 auto;}
+  };
+  .loginButton{
+    width: 100%;
+    display: table;
+    background-color: #dd6741;
+    border-color: #dd6741;
+    color: white;
+    span{color:white;}
+  }
+  .loginButton:hover{background-color:#dd6741;
+  border-color: #dd6741;
+  color: white;}
+//float

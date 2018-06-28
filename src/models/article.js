@@ -18,6 +18,7 @@ export default {
   subscriptions: {
     setup({ dispatch, history }) {
       history.listen(location => {
+        console.log(location,'location in articles');
         if (location.pathname === '/articleList') {
           dispatch({
             type: 'query',

@@ -5,20 +5,9 @@ import qs from 'qs';
 
 export async function query(values) {
   //普通axios尝试连接正式数据库(数据ok，跨域需要安装谷歌插件)
-  // console.log(qs.stringify(values),'params in serve');
-  // // var params = new URLSearchParams();
-  // // params.append(' page',values.page);
-  //
-  // return axios.get(`${target}/cat/Articles?${qs.stringify(values)}`)
-  //   .then(function (response) {
-  //     console.log(response);
-  //   })
-  //   .catch(function (error) {
-  //     console.log(error);
-  //   });
 
-
-  return request.get(`${target}/cat/Articles?page=${values.page}`,
+  console.log(values,'values in word')
+  return request.get(`${target}/cat/WordsPc?page=${values.page}`,
     {
     //   page:params.page
     // },{
@@ -38,14 +27,14 @@ export async function create(values) {
   params.append('type', 'add')
   params.append('data',JSON.stringify(values));
 
-  return axios.post(`${target}/cat/Articles`,params, {
+  return axios.post(`${target}/cat/WordsPc`,params, {
     headers: {
       'content-type': 'application/x-www-form-urlencoded',
       'Access-Control-Allow-Origin': '*'
     },
   })
     .then(function (response) {
-      console.log(response,'server article js');
+      console.log(response);
     })
     .catch(function (error) {
       console.log(error);
@@ -57,7 +46,7 @@ export function patch(id, values) {
   params.append('type', 'update')
   params.append('data',JSON.stringify(values));
 
-  return axios.post(`${target}/cat/Articles`,params, {
+  axios.post(`${target}/cat/WordsPc`,params, {
     headers: {
       'content-type': 'application/x-www-form-urlencoded',
       'Access-Control-Allow-Origin': '*'
@@ -78,7 +67,7 @@ export function remove(id) {
   params.append('type', 'delete')
   params.append('id',id);
 
-  return axios.post(`${target}/cat/Articles`,params, {
+  return axios.post(`${target}/cat/WordsPc`,params, {
     headers: {
       'content-type': 'application/x-www-form-urlencoded',
       'Access-Control-Allow-Origin': '*'

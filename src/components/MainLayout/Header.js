@@ -6,11 +6,11 @@ import styles from './MainLayout.less';
 import { Popconfirm } from 'antd';
 ;
 const Header = ({
-                  //app,
-                  //dispatch,
+                  app,
+                  dispatch,
                 }) => {
   function goExit(e) {
-    //dispatch({ type: 'app/logout'});
+    dispatch({ type: 'app/logout'});
   }
   return (
     <div className={styles.header}>

@@ -1,15 +1,40 @@
 import React from 'react';
+import dynamic from 'dva/dynamic';
 import { Router, Route, Switch } from 'dva/router';
 import Login from './routes/Login';
-import WordPage from './routes/WordPage';
-import ArticlePage from './routes/ArticlePage';
-function RouterConfig({ history }) {
+
+
+function RouterConfig({ history,app }) {
+  const WordPage = dynamic({
+    app,
+    models: () => [
+      import('./models/word'),
+    ],
+    component: () => import('./routes/WordPage'),
+  });
+  const ArticlePage = dynamic({
+    app,
+    models: () => [
+      import('./models/article'),
+    ],
+    component: () => import('./routes/ArticlePage'),
+  });
+  // const QuestionPage = dynamic({
+  //   app,
+  //   models: () => [
+  //     import('./models/question'),
+  //   ],
+  //   component: () => import('./routes/QuestionPage'),
+  // });
+
+
   return (
     <Router history={history}>
       <Switch>
-        <Route path="/" exact component={Login} />
-        <Route path="/word/wordList" exact component={WordPage} />
+        <Route path="/login" exact={true} component={Login} />
+        <Route exact path="/word/wordList" component={WordPage} />
         <Route exact path="/articleList"  component={ArticlePage} />
+
       </Switch>
     </Router>
   );
