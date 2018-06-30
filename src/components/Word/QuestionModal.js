@@ -4,7 +4,7 @@ import moment from 'moment';
 const CheckboxGroup = Checkbox.Group;
 const FormItem = Form.Item;
 const { TextArea } = Input;
-class WordModal extends Component {
+class QuestionModal extends Component {
 
   constructor(props) {
     super(props);
@@ -148,11 +148,11 @@ class WordModal extends Component {
                 <InputNumber min={1} max={100}/>,
               )}
             </FormItem>
-            <FormItem {...formItemLayout}  label="关联单词编号" key="wordId">
+            <FormItem {...formItemLayout}  key="wordId">
               {getFieldDecorator('wordId',{
                 initialValue: wordId,
               })(
-                <Input disabled={true}/>,
+                <Input disabled={true} type="hidden"/>,
               )}
             </FormItem>
 
@@ -162,4 +162,4 @@ class WordModal extends Component {
     )
   }
 }
-export default Form.create()(WordModal);
+export default Form.create()(QuestionModal);

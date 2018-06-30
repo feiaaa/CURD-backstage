@@ -4,8 +4,8 @@ import axios from 'axios';
 import qs from 'qs';
 
 export async function query(values) {
-  //普通axios尝试连接正式数据库(数据ok，跨域需要安装谷歌插件)
-  return request.get(`${target}/cat/WordsPc?page=${values.page}`,
+  //根据课程查询题目
+  return request.get(`${target}/cat/questions?lesson=${values.lesson}`,
     {
       method:'GET',
       header: {
@@ -23,7 +23,7 @@ export async function create(values) {
   params.append('type', 'add')
   params.append('data',JSON.stringify(values));
 
-  return axios.post(`${target}/cat/WordsPc`,params, {
+  return axios.post(`${target}/cat/QuestionsPc`,params, {
     headers: {
       'content-type': 'application/x-www-form-urlencoded',
       'Access-Control-Allow-Origin': '*'
@@ -43,7 +43,7 @@ export function patch(id, values) {
   params.append('type', 'update')
   params.append('data',JSON.stringify(values));
 
-  return axios.post(`${target}/cat/WordsPc`,params, {
+  return axios.post(`${target}/cat/QuestionsPc`,params, {
     headers: {
       'content-type': 'application/x-www-form-urlencoded',
       'Access-Control-Allow-Origin': '*'
@@ -65,7 +65,7 @@ export function remove(id) {
   params.append('type', 'delete')
   params.append('wordId',id);
 
-  return axios.post(`${target}/cat/WordsPc`,params, {
+  return axios.post(`${target}/cat/QuestionsPc`,params, {
     headers: {
       'content-type': 'application/x-www-form-urlencoded',
       'Access-Control-Allow-Origin': '*'

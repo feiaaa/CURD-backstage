@@ -102,7 +102,7 @@ function ArticleList({location, dispatch,list: dataSource, article,total,loading
         dataSource={dataSource}
         loading={loading}
         rowKey={record => record.id}
-        pagination={pagination}
+        pagination={pagination+1}
       />
     </div>
   );

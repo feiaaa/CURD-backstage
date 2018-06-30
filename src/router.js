@@ -19,13 +19,13 @@ function RouterConfig({ history,app }) {
     ],
     component: () => import('./routes/ArticlePage'),
   });
-  // const QuestionPage = dynamic({
-  //   app,
-  //   models: () => [
-  //     import('./models/question'),
-  //   ],
-  //   component: () => import('./routes/QuestionPage'),
-  // });
+  const QuestionPage = dynamic({
+    app,
+    models: () => [
+      import('./models/question'),
+    ],
+    component: () => import('./routes/QuestionPage'),
+  });
 
 
   return (
@@ -33,7 +33,9 @@ function RouterConfig({ history,app }) {
       <Switch>
         <Route path="/login" exact={true} component={Login} />
         <Route exact path="/word/wordList" component={WordPage} />
+        <Route exact path="/word/questionList" component={QuestionPage} />
         <Route exact path="/articleList"  component={ArticlePage} />
+
 
       </Switch>
     </Router>

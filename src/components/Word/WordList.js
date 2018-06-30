@@ -16,12 +16,14 @@ function WordList({location, dispatch,list: dataSource, word,total,loading,curre
     });
   }
   function deleteHandler(id) {
+
     dispatch({
       type: 'word/remove',
       payload: id,
     });
   }
   function editHandler(id, values) {
+    console.log(id,'id');
     dispatch({
       type: 'word/patch',
       payload: { id, values },
@@ -42,10 +44,16 @@ function WordList({location, dispatch,list: dataSource, word,total,loading,curre
   }
 
   const columns = [{
+    title: '单词编号',
+    dataIndex: 'wordId',
+    key: 'wordId',
+    width:'40',
+  }, {
     title: '单词',
     dataIndex: 'word',
     key: 'word',
-    width:'20%',
+    width:'15%',
+  }, {
   }, {
     title: '平假名发音',
     dataIndex: 'hiragana',
@@ -73,11 +81,11 @@ function WordList({location, dispatch,list: dataSource, word,total,loading,curre
     width:120,
     render: (text, record) => (
       <p>
-        <WordModal record={record} onOk={editHandler.bind(null, record.id)}>
+        <WordModal record={record} onOk={editHandler.bind(null, record.wordId)}>
         <a>编辑</a>
         </WordModal>
         &nbsp;
-        <Popconfirm title="确定要删除吗？" onConfirm={deleteHandler.bind(null, record.id)}>
+        <Popconfirm title="确定要删除吗？" onConfirm={deleteHandler.bind(null, record.wordId)}>
           <a>删除</a>
         </Popconfirm>
       </p>
@@ -105,7 +113,7 @@ function WordList({location, dispatch,list: dataSource, word,total,loading,curre
         dataSource={dataSource}
         loading={loading}
         rowKey={record => record.wordId}
-        pagination={pagination}
+        pagination={pagination+1}
       />
     </div>
   );
