@@ -21,21 +21,19 @@ class SideMenu extends Component {
 
   }
   handleClick= (e) => {
-    //console.log(e,'e');
-
+    //console.log(e,'handleClick');
   }
   render() {
-    //console.log(window.location.pathname,"window.location.pathname");
     return (
       <div  className={this.state.collapsed ? styles.sideBarSmall:styles.sideBar}>
         <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
           <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} />
         </Button>
         <Menu
-          selectedKeys={['/articleList']}
+          selectedKeys={[this.props.location.pathname]}
           mode="inline"
           theme="dark"
-          defaultOpenKeys={['/articleList']}
+          defaultOpenKeys={['/articleList','/word']}
           onClick={this.handleClick.bind(this)}
           inlineCollapsed={this.state.collapsed}
         >

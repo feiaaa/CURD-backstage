@@ -128,7 +128,7 @@ address,cite,dfn,var,em,i,strong {font-style: normal;}
     a{font-size: 18px;}
     :global(.ant-menu-inline .ant-menu-item:after),:global(.ant-menu-vertical .ant-menu-item:after){border: 0;}
     :global(.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected){background-color: @color-camel; span{color:@color-white}}
-    :global(.ant-btn-primary){background: @color-camel !important;color:@color-white}
+    :global(.ant-btn-primary){background: @color-camel !important;color:@color-white;border-color:@color-camel;}
 
   }
   .sideBarSmall{
@@ -199,6 +199,10 @@ address,cite,dfn,var,em,i,strong {font-style: normal;}
       .searchRight{ text-align: right; float: right; line-height: 32px}
 
     }
+
+    :global(.ant-pagination-item-active:hover) {border-color: #bc5837;}
+    :global(.ant-pagination-item-active) {border-color: #dd6741;}
+    :global(.ant-pagination-item-active a),:global(.ant-pagination-item-active:focus a),:global(.ant-pagination-item-active:hover a){color: #bc5837;}
   }
   .header{
     height: 140px;
@@ -229,8 +233,6 @@ address,cite,dfn,var,em,i,strong {font-style: normal;}
       .buttonExit{  color:@color-camel;line-height:60px; display:block;float: right;}
 
     }
-
-
   }
 }
 

@@ -45,37 +45,32 @@ function QuestionList({location, dispatch,list: dataSource, word,total,loading,c
   }
 
   const columns = [{
-    title: '单词编号',
+    title: '题目编号',
     dataIndex: 'questionId',
     key: 'questionId',
     width:'40',
   }, {
-    title: '单词',
+    title: '题目',
     dataIndex: 'question',
     key: 'question',
+    width:'25%',
+  }, {
+  }, {
+    title: '提示',
+    dataIndex: 'hint',
+    key: 'hint',
+    width:'25%',
+  }, {
+    title: '关联单词',
+    dataIndex: 'wordId',
+    key: 'wordId',
     width:'15%',
   }, {
-  }, {
-    title: '平假名发音',
-    dataIndex: 'hiragana',
-    key: 'hiragana',
-    width:'20%',
-    render: (text,record) => <span>{record.hiragana+record.tone}</span>,
-  }, {
-    title: '词性',
-    dataIndex: 'speech',
-    key: 'speech',
-    width:'15%',
-  }, {
-    title: '中文',
-    dataIndex: 'chinese',
-    key: 'chinese',
-    width:'20%',
-  }, {
-    title: '课程',
+    title: '关联课程',
     dataIndex: 'lesson',
     key: 'lesson',
     width:'10%',
+    render: (text,record) => <span>{record.lesson+1}</span>,
   }, {
     title: '操作',
     key: 'operation',

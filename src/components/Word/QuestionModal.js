@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Form, Input,Modal,DatePicker,Checkbox,InputNumber } from 'antd';
-import moment from 'moment';
 const CheckboxGroup = Checkbox.Group;
 const FormItem = Form.Item;
 const { TextArea } = Input;
@@ -37,17 +36,13 @@ class QuestionModal extends Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         var params={
-          word:values.word,
-          hiragana:values.hiragana,
-          tone:values.tone,
-          speech:values.speech,
-          chinese:values.chinese,
-          phrase:values.phrase,
-          phrase_note:values.phrase_note,
-          lesson:values.lesson,
+          question:values.question,
+          correct:values.correct,
+          hint:values.hint,
+          wordId:values.wordId,
         };
-        if(values.wordId){
-          params.wordId=values.wordId
+        if(values.questionId){
+          params.questionId=values.questionId
         }
         //console.log(values,"values in okHandler",params,"params in okHandler station");
         onOk(params);
@@ -60,7 +55,7 @@ class QuestionModal extends Component {
 
     const { children } = this.props;
     const { getFieldDecorator } = this.props.form;
-    var { wordId,word,hiragana,tone,speech,chinese,phrase,phrase_note,lesson} = this.props.record;
+    var { questionId,question,hiragana,tone,correct,chinese,phrase,hint,wordId} = this.props.record;
     const formItemLayout = {
       labelCol: { span: 6 },
       wrapperCol: { span: 14 },
@@ -71,86 +66,51 @@ class QuestionModal extends Component {
           { children }
         </span>
         <Modal
-          title={this.props.record.word===undefined?'新增单词':'编辑单词'}
+          title={this.props.record.question===undefined?'新增题目':'编辑题目'}
           visible={this.state.visible}
           onOk={this.okHandler}
           onCancel={this.hideModelHandler}
 
         >
           <Form horizontal="true" onSubmit={this.okHandler}>
-            <FormItem {...formItemLayout} label="日语单词" key="word">
-              {getFieldDecorator('word',{
+            <FormItem {...formItemLayout} label="日语题目" key="question">
+              {getFieldDecorator('question',{
                 rules: [{required: true }],
-                initialValue: word,
+                initialValue: question,
               })(
-                <Input placeholder="请输入日语单词"/>,
+                <TextArea placeholder="请输入日语题目"  rows={6}/>,
               )}
             </FormItem>
 
-            <FormItem {...formItemLayout} label="平假名发音" key="hiragana">
-              {getFieldDecorator('hiragana',{
-                rules: [{required: true }],
-                initialValue: hiragana,
-              })(
-                  <Input placeholder="请输入平假名发音"/>,
-              )}
-            </FormItem>
 
-            <FormItem {...formItemLayout} label="声调" key="tone">
-              {getFieldDecorator('tone',{
-                rules: [{required: true }],
-                initialValue: tone,
-              })(
-                <Input placeholder="请输入开发语言"/>,
-              )}
-            </FormItem>
 
-            <FormItem {...formItemLayout} label="词性" key="speech">
-              {getFieldDecorator('speech',{
-                rules: [{required: true }],
-                initialValue: speech,
-              })(
-                <Input placeholder="请输入词性"/>,
-              )}
-            </FormItem>
-
-            <FormItem {...formItemLayout} label="中文" key="chinese">
-              {getFieldDecorator('chinese',{
-                rules: [{required: true }],
-                initialValue: chinese,
-              })(
-                <Input placeholder="请输入单词中文"/>,
-              )}
-            </FormItem>
-
-            <FormItem {...formItemLayout} label="例句" >
+            <FormItem {...formItemLayout} label="中文提示" >
               {
-                getFieldDecorator('phrase', {
+                getFieldDecorator('hint', {
                   rules: [{ required: true, message: '请完善信息后再点击完成' }],
-                  initialValue: phrase,
-                })(<TextArea placeholder="输入例句" rows={6} />)
+                  initialValue: hint,
+                })(<TextArea placeholder="输入中文提示" rows={6} />)
               }
             </FormItem>
-
-            <FormItem {...formItemLayout} label="例句翻译" >
-              {
-                getFieldDecorator('phrase_note', {
-                  rules: [{ required: true, message: '请完善信息后再点击完成' }],
-                  initialValue: phrase_note,
-                })(<TextArea placeholder="输入例句翻译" rows={6} />)
-              }
-            </FormItem>
-            <FormItem {...formItemLayout} label="关联课程编号" key="lesson">
-              {getFieldDecorator('lesson',{
+            <FormItem {...formItemLayout} label="正确选项" key="correct">
+              {getFieldDecorator('correct',{
                 rules: [{required: true }],
-                initialValue: lesson,
+                initialValue: correct,
+              })(
+                <Input placeholder="请输入正确选项"/>,
+              )}
+            </FormItem>
+            <FormItem {...formItemLayout} label="关联单词编号" key="wordId">
+              {getFieldDecorator('wordId',{
+                rules: [{required: true }],
+                initialValue: wordId,
               })(
                 <InputNumber min={1} max={100}/>,
               )}
             </FormItem>
-            <FormItem {...formItemLayout}  key="wordId">
-              {getFieldDecorator('wordId',{
-                initialValue: wordId,
+            <FormItem {...formItemLayout}  key="questionId">
+              {getFieldDecorator('questionId',{
+                initialValue: questionId,
               })(
                 <Input disabled={true} type="hidden"/>,
               )}

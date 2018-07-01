@@ -1,7 +1,7 @@
 import request from '../../utils/request';
 import { target } from '../../utils/config.js';
 import axios from 'axios';
-import qs from 'qs';
+// import qs from 'qs';
 
 //登录
 export async  function login(values) {
@@ -17,11 +17,11 @@ export async  function login(values) {
     },
   })
     .then(function (response) {
-      console.log(response,'then');
+      return response;
     })
     .catch(function (error) {
-      console.log(error,'error');
     });
+
 
 
 }

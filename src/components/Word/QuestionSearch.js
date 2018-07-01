@@ -5,7 +5,6 @@ import styles from '../MainLayout/MainLayout.less';
 const dateFormat = 'YYYY/MM/DD';
 
 const FormItem = Form.Item;
-const RangePicker = DatePicker.RangePicker;
 class ArticleSearch extends Component {
   constructor(props) {
     super(props);
@@ -20,18 +19,9 @@ class ArticleSearch extends Component {
       if (err) {
         return;
       }
-      var rangeTimeValue = fieldsValue['range-time-picker'];
-      var values;
-      if(rangeTimeValue===undefined || rangeTimeValue.length ===0){
-        values = { ...fieldsValue, createTime: 0, endTime:Date.parse(new Date()) };
-      }
-      else{
-        values = { ...fieldsValue, createTime: rangeTimeValue[0].format(dateFormat), endTime: rangeTimeValue[1].format(dateFormat) };
-      }
-      delete values['range-time-picker'];
       this.props.dispatch({
-        type: 'article/query',
-        payload:values,
+        type: 'question/query',
+        payload: fieldsValue,
       });
     });
   }
@@ -41,19 +31,15 @@ class ArticleSearch extends Component {
       <Form onSubmit={this.handleSearch} layout={'inline'}>
         <div className={styles.searchLeft}>
 
-          <FormItem label="" key="title">
-            {getFieldDecorator('title')(
-              <Input placeholder="请输入主标题" style={{ width: '161px' }} />,
+          <FormItem label="课程编号" key="lesson">
+            {getFieldDecorator('lesson')(
+              <Input placeholder="请输入课程编号" style={{ width: '161px' }} />,
             )}
           </FormItem>
-          <FormItem label="副标题" key="subTitle">
-            {getFieldDecorator('subTitle')(
-              <Input placeholder="请输入副标题" style={{ width: '161px' }} />,
-            )}
-          </FormItem>
-              <FormItem label="大类" key="development">
-                {getFieldDecorator('development')(
-              <Input placeholder="请输入大类" style={{ width: '161px' }} />,
+
+          <FormItem label="背诵词书" key="book">
+                {getFieldDecorator('book')(
+              <Input placeholder="请输入词书" style={{ width: '161px' }} />,
             )}
           </FormItem>
           <Button htmlType="submit" type="primary">搜索</Button>
