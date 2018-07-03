@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Input,Modal,DatePicker,Checkbox,InputNumber } from 'antd';
+import { Form, Input,Modal,Checkbox,InputNumber } from 'antd';
 const CheckboxGroup = Checkbox.Group;
 const FormItem = Form.Item;
 const { TextArea } = Input;

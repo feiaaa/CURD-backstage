@@ -1,7 +1,7 @@
 import request from '../../utils/request';
 import { target } from '../../utils/config.js';
 import axios from 'axios';
-import qs from 'qs';
+
 
 export async function query(values) {
   //普通axios尝试连接正式数据库(数据ok，跨域需要安装谷歌插件)

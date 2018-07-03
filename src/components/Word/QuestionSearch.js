@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { Button, Input, DatePicker, Form } from 'antd';
+import { Button, Input, Form } from 'antd';
 import styles from '../MainLayout/MainLayout.less';
-const dateFormat = 'YYYY/MM/DD';
 
 const FormItem = Form.Item;
 class ArticleSearch extends Component {
@@ -39,7 +38,7 @@ class ArticleSearch extends Component {
 
           <FormItem label="背诵词书" key="book">
                 {getFieldDecorator('book')(
-              <Input placeholder="请输入词书" style={{ width: '161px' }} />,
+              <Input placeholder="默认" style={{ width: '161px' }} disabled/>,
             )}
           </FormItem>
           <Button htmlType="submit" type="primary">搜索</Button>

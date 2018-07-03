@@ -1,4 +1,4 @@
-import { hashHistory,routerRedux } from 'dva/router';
+// import { hashHistory,routerRedux } from 'dva/router';
 //import { query } from '../services/mockjs/question';//mockjs
 import * as questionService from '../services/requestServer/question';//server
 export default {

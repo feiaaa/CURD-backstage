@@ -104,7 +104,7 @@ class QuestionModal extends Component {
                 initialValue:section,
               })(
                 <InputGroup>
-                  <Input />
+                  <Input defaultValue={section==undefined?'':section } hidden/>
                   <Input placeholder="请输入选项A的内容" refs ="sectionA" defaultValue={section==undefined?'':eval('(' + section + ')').A} onKeyUp={this.changeSections.bind('A',this)}/>
                   <Input placeholder="请输入选项B的内容" refs ="sectionB" defaultValue={section==undefined?'':eval('(' + section + ')').B} onKeyUp={this.changeSections.bind(this,'B')}/>
                   <Input placeholder="请输入选项C的内容" refs ="sectionC" defaultValue={section==undefined?'':eval('(' + section + ')').C} onKeyUp={this.changeSections.bind(this,'C')}/>
@@ -134,7 +134,7 @@ class QuestionModal extends Component {
                 rules: [{required: true }],
                 initialValue: wordId,
               })(
-                <InputNumber min={1} max={100}/>,
+                <InputNumber min={1} max={9999999}/>,
               )}
             </FormItem>
             <FormItem {...formItemLayout}  key="questionId">

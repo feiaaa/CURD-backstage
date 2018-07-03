@@ -1,5 +1,5 @@
-import { hashHistory,routerRedux } from 'dva/router';
-//import { query } from '../services/mockjs/word';//mockjs
+// import { hashHistory,routerRedux } from 'dva/router';
+// import { query } from '../services/mockjs/word';//mockjs
 import * as wordService from '../services/requestServer/word';//server
 export default {
 

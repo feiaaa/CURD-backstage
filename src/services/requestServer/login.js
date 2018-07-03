@@ -1,4 +1,4 @@
-import request from '../../utils/request';
+
 import { target } from '../../utils/config.js';
 import axios from 'axios';
 // import qs from 'qs';
