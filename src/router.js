@@ -1,8 +1,10 @@
 import React from 'react';
 import dynamic from 'dva/dynamic';
-import { Router, Route, Switch } from 'dva/router';
+import { IndexRoute,Router, Route, Switch } from 'dva/router';
 import Login from './routes/Login';
-
+// import { createHistory } from 'history/createBrowserHistory';
+// const history=createHistory();
+// console.log(createHistory(),'createHistory() in router');
 
 function RouterConfig({ history,app }) {
   const WordPage = dynamic({
@@ -29,8 +31,10 @@ function RouterConfig({ history,app }) {
 
 
   return (
-    <Router history={history}>
+    <Router  history={history}>
       <Switch>
+        {/*<IndexRoute path="/" component={Login} />*/}
+        <Route path="/" exact={true} component={Login} />
         <Route path="/login" exact={true} component={Login} />
         <Route exact path="/word/wordList" component={WordPage} />
         <Route exact path="/word/questionList" component={QuestionPage} />
