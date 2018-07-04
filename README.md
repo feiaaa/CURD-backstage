@@ -7,7 +7,8 @@ npm install
 npm start
 ```
 ### 目前可以看到的网页
-http://localhost:3005/#/articleList
+> http://localhost:3005/#/articleList
+> ps：有时候网站打不开的情况，是因为#号被地址栏截掉，后续会把hashHistory换成browserHistory，解决这个问题
 
 
 ### 问题处理
