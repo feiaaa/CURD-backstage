@@ -70,7 +70,6 @@ function QuestionList({location, dispatch,list: dataSource, word,total,loading,c
     dataIndex: 'lesson',
     key: 'lesson',
     width:'10%',
-    render: (text,record) => <span>{record.lesson+1}</span>,
   }, {
     title: '操作',
     key: 'operation',

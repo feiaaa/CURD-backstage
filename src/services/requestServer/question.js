@@ -22,7 +22,7 @@ export async function create(values) {
   params.append('type', 'add')
   params.append('data',JSON.stringify(values));
 
-  return axios.post(`${target}/cat/QuestionPc`,params, {
+  return axios.post(`${target}/cat/questionPC`,params, {
     headers: {
       'content-type': 'application/x-www-form-urlencoded',
       'Access-Control-Allow-Origin': '*'
@@ -42,7 +42,7 @@ export function patch(id, values) {
   params.append('type', 'update')
   params.append('data',JSON.stringify(values));
 
-  return axios.post(`${target}/cat/QuestionPc`,params, {
+  return axios.post(`${target}/cat/questionPC`,params, {
     headers: {
       'content-type': 'application/x-www-form-urlencoded',
       'Access-Control-Allow-Origin': '*'
@@ -64,7 +64,7 @@ export function remove(id) {
   params.append('type', 'delete')
   params.append('questionId',id);
 
-  return axios.post(`${target}/cat/QuestionPc`,params, {
+  return axios.post(`${target}/cat/questionPC`,params, {
     headers: {
       'content-type': 'application/x-www-form-urlencoded',
       'Access-Control-Allow-Origin': '*'

@@ -1,12 +1,11 @@
 import dva from 'dva';
 import './index.css';
 import 'antd/dist/antd.css';
-// import { createHistory } from 'history/createBrowserHistory';
-// const history=createHistory();
-// console.log({ createHistory },'createHistory()');
+// import { browserHistory  } from 'react-router'
+// import {  createHistory } from 'history/createBrowserHistory';
 // 1. Initialize
 const app = dva({
- // history: history,
+  // history: history,
 });
 // 2. Plugins
  app.use({});

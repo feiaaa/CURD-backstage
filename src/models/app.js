@@ -28,11 +28,11 @@ export default {
       yield call(delay, 2000);
       var res=yield call(loginService.login,payload);
 
-      if(res.data.code==-1)
+      if(res.data.code===-1)
       {
         alert(res.data.message);
       }
-      else if(res.data.code==1000)
+      else if(res.data.code===1000)
       {
         //localStorage.setItem('_username',payload.name);
         yield put(routerRedux.push('/articleList'));
