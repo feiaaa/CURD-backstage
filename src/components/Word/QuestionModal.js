@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { Form, Input,Modal,Radio,InputNumber } from 'antd';
 import request from '../../utils/request';
 import {target} from "../../utils/config";
-const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 const FormItem = Form.Item;
-const InputGroup = Input.Group
 const { TextArea } = Input;
 
 var stateSections={"A":"","B":"","C":"","D":""};
+var flag=0;
 class QuestionModal extends Component {
 
   constructor(props) {
@@ -21,8 +20,8 @@ class QuestionModal extends Component {
   }
   componentDidMount(){
     this.setState({
-      // stateSections:this.props.record.section?eval('(' + this.props.record.section + ')'):''
-    })
+      correct:this.props.record.correct?this.props.record.correct:'',
+    });
   }
   checkSection = (rule, value, callback) => {
     for(var i in stateSections){
@@ -51,12 +50,10 @@ class QuestionModal extends Component {
           method:'GET',
           header: {
             'content-type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin': '*'
           },
         }
       )
         .then(function (res) {
-          console.log(res,'res');
           if(res.data.result.wordId===0)
           {
             callback('无效的单词id，请先创建对应的单词');
@@ -79,7 +76,6 @@ class QuestionModal extends Component {
       correct:e.target.value,
     });
     this.props.record.correct=e.target.value;
-    console.log(this.props.record.correct,'this.props.record.correct');
   }
   showModelHandler = (e) => {
     if (e) e.stopPropagation();
@@ -88,23 +84,18 @@ class QuestionModal extends Component {
     });
   };
   changeSections = (refstr,proxy) => {
-    console.log(refstr,'sectionName',proxy,'=proxy',proxy.target.value,'=value');
-    if(refstr=="A"){
-      stateSections.A=proxy.target.value;
+    if(refstr==="A"){
+      stateSections.A=proxy.target.value.toString();
     }
-    else if(refstr=="B"){
-      stateSections.B=proxy.target.value;
+    if(refstr==="B"){
+      stateSections.B=proxy.target.value.toString();
     }
-    else if(refstr=="C"){
-      stateSections.C=proxy.target.value;
+    if(refstr==="C"){
+      stateSections.C=proxy.target.value.toString();
     }
-    else if(refstr=="D"){
-      stateSections.D=proxy.target.value;
+   if(refstr==="D"){
+      stateSections.D=proxy.target.value.toString();
     }
-    else{
-      console.log('section error!')
-    }
-    console.log(stateSections,'statesection');
   }
   hideModelHandler = () => {
     //清空表单内容
@@ -120,23 +111,29 @@ class QuestionModal extends Component {
         //提交填写内容
         var params={
           question:values.question,
-          correct:values.correct,
+          correct:this.state.correct,
           section:JSON.stringify(stateSections),
           hint:values.hint,
-          wordId:parseInt(values.wordId),
-          lesson:parseInt(values.lesson),
+          wordId:parseInt(values.wordId,10),
+          lesson:parseInt(values.lesson,10),
         };
         if(values.questionId){
           params.questionId=values.questionId
         }
-        console.log(values,"values in okHandler",params,"params in okHandler question");
         onOk(params);
         this.hideModelHandler();
       }
     });
   };
+  //阻止报错 eval can be harmful，本体为把str类型的json字符串转成json对象
+  evil = (fn)=> {
+
+    var Fn = Function; //一个变量指向Function，防止有些前端编译工具报错
+
+    return new Fn('return ' + fn)();
+
+  }
   render(){
-    //console.log (this.props,'this.props');
     const { children } = this.props;
     const { getFieldDecorator } = this.props.form;
     var { questionId,question,correct,section,hint,wordId,lesson} = this.props.record;
@@ -144,7 +141,11 @@ class QuestionModal extends Component {
       labelCol: { span: 6 },
       wrapperCol: { span: 14 },
     };
-    var stateSections=this.props.record.section?eval('(' + this.props.record.section + ')'):stateSections;
+    if(this.props.record.section && flag===0){
+      stateSections=this.evil(this.props.record.section );
+      flag=1;
+    }
+
     return(
       <span>
         <span onClick={this.showModelHandler}>
@@ -180,13 +181,12 @@ class QuestionModal extends Component {
                 rules: [{validator: this.checkSection}],
                 initialValue:section,
               })(
-                <InputGroup>
-                  <Input placeholder="请输入选项A的内容" ref={()=>{}} id="sectionA" defaultValue={section==undefined?'':eval('(' + section + ')').A} onBlur={this.changeSections.bind(this,'A')}/>
-                  <Input placeholder="请输入选项B的内容" ref={()=>{}} id="sectionB" defaultValue={section==undefined?'':eval('(' + section + ')').B} onBlur={this.changeSections.bind(this,'B')}/>
-                  <Input placeholder="请输入选项C的内容" ref={()=>{}} id="sectionC" defaultValue={section==undefined?'':eval('(' + section + ')').C} onBlur={this.changeSections.bind(this,'C')}/>
-                  <Input placeholder="请输入选项D的内容" ref={()=>{}} id="sectionD" defaultValue={section==undefined?'':eval('(' + section + ')').D} onBlur={this.changeSections.bind(this,'D')}/>
-
-                </InputGroup>,
+                <span>
+                  <Input placeholder="请输入选项A的内容" id="sectionA" defaultValue={section===undefined?'':this.evil(section).A} onBlur={this.changeSections.bind(this,'A')}/>
+                  <Input placeholder="请输入选项B的内容"  id="sectionB" defaultValue={section===undefined?'':this.evil(section).B} onBlur={this.changeSections.bind(this,'B')}/>
+                  <Input placeholder="请输入选项C的内容" id="sectionC" defaultValue={section===undefined?'':this.evil(section).C} onBlur={this.changeSections.bind(this,'C')}/>
+                  <Input placeholder="请输入选项D的内容"  id="sectionD" defaultValue={section===undefined?'':this.evil(section).D} onBlur={this.changeSections.bind(this,'D')}/>
+                </span>,
               )}
             </FormItem>
 
@@ -218,7 +218,7 @@ class QuestionModal extends Component {
                 rules: [{required: true }],
                 initialValue: lesson,
               })(
-                <Input min={1} max={9999999}/>,
+                <InputNumber min={1} max={9999999}/>,
               )}
             </FormItem>
             <FormItem {...formItemLayout}  key="questionId">
