@@ -32,4 +32,4 @@ npm run build
 - [dva使用mockjs](http://doc.okbase.net/tjc1996/archive/262169.html)
 
 ### 
-2018-7-03：articlelist的无搜索的传值功能，questionlist 的增改修复中，路由问题修复中
+2018-7-09：准备优化word的词性选项，路由问题修复中

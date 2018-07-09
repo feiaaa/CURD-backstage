@@ -109,7 +109,7 @@ class WordModal extends Component {
                 rules: [{required: true }],
                 initialValue: speech,
               })(
-                <Input placeholder="请输入词性"/>,
+                {/*<Input placeholder="请输入词性"/>,*/}
               )}
             </FormItem>
 
