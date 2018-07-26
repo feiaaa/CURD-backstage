@@ -9,13 +9,19 @@ class WordModal extends Component {
     super(props);
     this.state = {
       visible: false,
+      toneStat:[],
 
     };
   }
   componentDidMount(){
-    this.setState({
+    console.log(this.props.record.tone,'.record.tone did');
+    if(this.props.record.tone!=undefined)
+    {
+      this.setState({
+        toneStat:this.props.record.tone.split(',')||[],
+      })
+    }
 
-    })
   }
   showModelHandler = (e) => {
     if (e) e.stopPropagation();
@@ -23,7 +29,19 @@ class WordModal extends Component {
       visible: true,
     });
   };
-
+  onChangeTone = (e) => {
+    console.log(e,'e onChangeTone');
+    this.setState({
+      toneStat:e,
+    });
+  };
+  onCheckTone = (e) => {
+    console.log(e,'e onCheckTone');
+    if(e.length==0)
+    {
+      console.log('必填');
+    }
+  };
   hideModelHandler = () => {
     //清空表单内容
     this.props.form.resetFields();
@@ -64,6 +82,15 @@ class WordModal extends Component {
       labelCol: { span: 6 },
       wrapperCol: { span: 14 },
     };
+    const optionsTone = [
+      { label: '⓪', value: '⓪' },
+      { label: '①', value: '①' },
+      { label: '②', value: '②' },
+      { label: '③', value: '③' },
+      { label: '④', value: '④' },
+      { label: '⑤', value: '⑤' },
+      { label: '⑥', value: '⑥' },
+    ];
     return(
       <span>
         <span onClick={this.showModelHandler}>
@@ -91,17 +118,14 @@ class WordModal extends Component {
                 rules: [{required: true }],
                 initialValue: hiragana,
               })(
-                  <Input placeholder="请输入平假名发音"/>,
+                <Input placeholder="请输入平假名发音"/>,
               )}
             </FormItem>
 
-            <FormItem {...formItemLayout} label="声调" key="tone">
-              {getFieldDecorator('tone',{
-                rules: [{required: true }],
-                initialValue: tone,
-              })(
-                <Input placeholder="请输入开发语言"/>,
-              )}
+            <FormItem {...formItemLayout} label="声调" key="tone" required>
+
+                <CheckboxGroup options={optionsTone} defaultValue={tone==undefined?[]:tone.split(',')} onChange={this.onChangeTone.bind(this)} onBlur={this.onCheckTone.bind(this)}/>,
+
             </FormItem>
 
             <FormItem {...formItemLayout} label="词性" key="speech">
@@ -109,7 +133,7 @@ class WordModal extends Component {
                 rules: [{required: true }],
                 initialValue: speech,
               })(
-                {/*<Input placeholder="请输入词性"/>,*/}
+                <Input placeholder="请输入词性"/>,
               )}
             </FormItem>
 

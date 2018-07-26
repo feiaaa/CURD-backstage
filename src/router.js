@@ -2,11 +2,6 @@ import React from 'react';
 import dynamic from 'dva/dynamic';
 import { Router, Route, Switch, } from 'dva/router';
 import Login from './routes/Login';
-// import { browserHistory  } from 'dva/router'
-// import {  createHistory } from 'history/createBrowserHistory';
-// // var history=createHistory();
-// console.log(browserHistory ,'browserHistory ',{ browserHistory } ,'browserHistory ',createHistory,'createHistory() in router',{ createHistory },'{createHistory}');
-
 function RouterConfig({ history,app }) {
   const WordPage = dynamic({
     app,

@@ -58,24 +58,17 @@ class BreadcrumbCustom extends Component {
   render() {
     const routes = [
       {
-        path: this.getbreadcrumbPath(window.location.hash, 1),
-        breadcrumbName: this.getbreadcrumbName(window.location.hash, 1),
+        path: this.getbreadcrumbPath(window.location.pathname, 1),
+        breadcrumbName: this.getbreadcrumbName(window.location.pathname, 1),
       }, {
-        path: this.getbreadcrumbPath(window.location.hash, 2),
-        breadcrumbName: this.getbreadcrumbName(window.location.hash, 2),
+        path: this.getbreadcrumbPath(window.location.pathname, 2),
+        breadcrumbName: this.getbreadcrumbName(window.location.pathname, 2),
       }];
     function itemRender(route, params, routes, paths) {
       const last = routes.indexOf(route) === routes.length - 1;
       // return last ? <span>{route.breadcrumbName}</span> : <Link to={paths.join('/')}>{route.breadcrumbName}</Link>;
       return last ? <span>{route.breadcrumbName}</span> : <span>{route.breadcrumbName}</span>;
     }
-    // if(routes[1].path.indexOf('bannerIndex')!==-1)
-    // {
-    //   notes='建议上传宽度xxx px,高度xxx px的图片（类型:jpg、png），以免拉伸造成变形';
-    // }
-    // else {
-    //   notes='';
-    // }
     return (
       <div className={styles.flexCont}>
         <span className={styles.flexItem}> 当前位置<Icon type="right" /></span>
