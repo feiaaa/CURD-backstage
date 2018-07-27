@@ -31,10 +31,10 @@ export default {
   },
 
   effects: {
-    *query({ payload:{ page =  0 } }, { select, call, put }) {
-      console.log(page,'page in query');
+    *query({ payload:{ lesson =  1,page =  0 } }, { select, call, put }) {
+      console.log(lesson,'lesson',page,'page in query');
       yield put({ type: 'showLoading' });
-      const { data } = yield call(wordService.query,{page});
+      const { data } = yield call(wordService.query,{lesson,page});
       console.log(data,'data in model word')
       if (data.code===1000) {
         yield put({

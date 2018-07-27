@@ -4,6 +4,7 @@ import axios from 'axios';
 
 
 export async function query(values) {
+  console.log(values,'values');
   //普通axios尝试连接正式数据库(数据ok，跨域需要安装谷歌插件)
   return request.get(`${target}/cat/WordsPc?page=${values.page}`,
     {

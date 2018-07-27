@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'dva';
 import styles from '../MainLayout/MainLayout.less';
 import WordModal from './WordModal';
+import WordSearch from './WordSearch';
 // 采用antd的UI组件
 import { Table,  Popconfirm,Button,Icon } from 'antd';
 
 
 function WordList({location, dispatch,list: dataSource, word,total,loading,current}) {
-  console.log(dataSource,'dataSource');
   //CURD funtion start
   function createHandler(values) {
     dispatch({
@@ -103,6 +103,7 @@ function WordList({location, dispatch,list: dataSource, word,total,loading,curre
   return (
     <div>
       <div className={`${styles.searchForm} ${styles.overflow}`}>
+        <WordSearch/>
         <WordModal record={{}} onOk={createHandler}>
           <Button type="primary">
             <Icon type="plus" />新增</Button>

@@ -14,7 +14,6 @@ class WordModal extends Component {
     };
   }
   componentDidMount(){
-    console.log(this.props.record.tone,'.record.tone did');
     if(this.props.record.tone!=undefined)
     {
       this.setState({
@@ -56,7 +55,7 @@ class WordModal extends Component {
         var params={
           word:values.word,
           hiragana:values.hiragana,
-          tone:values.tone,
+          tone:this.state.toneStat.toString(),
           speech:values.speech,
           chinese:values.chinese,
           phrase:values.phrase,

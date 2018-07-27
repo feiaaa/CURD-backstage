@@ -7,8 +7,7 @@ npm install
 npm start
 ```
 ### 目前可以看到的网页
-> http://localhost:3005/#/articleList
-> ps：有时候网站打不开的情况，是因为#号被地址栏截掉，后续会把hashHistory换成browserHistory，解决这个问题
+> http://localhost:3005/articleList
 
 
 ### 问题处理
@@ -30,7 +29,6 @@ npm run build
 - [dva社区(含图解和源码解析)](https://dvajs.com/guide/)
 - [mockjs](http://mockjs.com/dist/mock.js)
 - [dva使用mockjs](http://doc.okbase.net/tjc1996/archive/262169.html)
+- [路由问题解决](https://www.jianshu.com/p/649e97ff4354)
 
 ### 
-2018-7-09：准备优化word的词性选项，路由问题修复中
-2018-7-14
