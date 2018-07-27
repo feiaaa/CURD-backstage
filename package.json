@@ -40,6 +40,6 @@
     "less": "^2.6.1",
     "less-loader": "^2.2.3",
     "redbox-react": "^1.4.3",
-    "roadhog": "^2.0.0"
+    "roadhog": "^2.4.2"
   }
 }

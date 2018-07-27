@@ -17,9 +17,7 @@ export default {
 
   subscriptions: {
     setup({ dispatch, history }) {
-      console.log(history,'history in questionjs');
       history.listen(location => {
-        console.log(location.pathname,'location.pathname')
         if (location.pathname === '/word/questionList') {
           dispatch({
             type: 'query',

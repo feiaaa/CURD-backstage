@@ -14,7 +14,7 @@ class WordModal extends Component {
     };
   }
   componentDidMount(){
-    if(this.props.record.tone!=undefined)
+    if(this.props.record.tone!==undefined)
     {
       this.setState({
         toneStat:this.props.record.tone.split(',')||[],
@@ -36,7 +36,7 @@ class WordModal extends Component {
   };
   onCheckTone = (e) => {
     console.log(e,'e onCheckTone');
-    if(e.length==0)
+    if(e.length===0)
     {
       console.log('必填');
     }
@@ -123,7 +123,7 @@ class WordModal extends Component {
 
             <FormItem {...formItemLayout} label="声调" key="tone" required>
 
-                <CheckboxGroup options={optionsTone} defaultValue={tone==undefined?[]:tone.split(',')} onChange={this.onChangeTone.bind(this)} onBlur={this.onCheckTone.bind(this)}/>,
+                <CheckboxGroup options={optionsTone} defaultValue={tone===undefined?[]:tone.split(',')} onChange={this.onChangeTone.bind(this)} onBlur={this.onCheckTone.bind(this)}/>,
 
             </FormItem>
 

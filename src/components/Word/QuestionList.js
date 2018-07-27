@@ -8,7 +8,6 @@ import { Table,  Popconfirm,Button,Icon } from 'antd';
 
 
 function QuestionList({location, dispatch,list: dataSource, word,total,loading,current}) {
-  console.log(dataSource,'dataSource');
   //CURD funtion start
   function createHandler(values) {
     dispatch({
@@ -91,7 +90,7 @@ function QuestionList({location, dispatch,list: dataSource, word,total,loading,c
   const pagination = {
     showQuickJumper:true,
     total,
-    current,
+    current:current+1,
     particleTypeSize: 10,
     onChange: (current)=>{pageChangeHandler(current)},
   };
@@ -109,14 +108,13 @@ function QuestionList({location, dispatch,list: dataSource, word,total,loading,c
         dataSource={dataSource}
         loading={loading}
         rowKey={record => record.questionId}
-        pagination={pagination+1}
+        pagination={pagination}
       />
     </div>
   );
 }
 
 function mapStateToProps(state) {
-  console.log(state,'state in questionlist');
   const { list, total, current } = state.question;
   return {
     loading: state.question.loading,

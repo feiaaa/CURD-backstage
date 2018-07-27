@@ -194,7 +194,7 @@ class QuestionModal extends Component {
 
             <FormItem {...formItemLayout} label="正确选项" key="correct">
               {getFieldDecorator('correct',{
-                rules: [{required: true }],
+                rules: [{required: true, message: '请完善信息后再点击完成' }],
                 initialValue: correct,
               })(
                 <RadioGroup onChange={this.onChangeCorrect.bind(this)}>
@@ -215,7 +215,7 @@ class QuestionModal extends Component {
             </FormItem>
             <FormItem {...formItemLayout} label="关联课程" key="lesson">
               {getFieldDecorator('lesson',{
-                rules: [{required: true }],
+                rules: [{required: true, message: '请完善信息后再点击完成' }],
                 initialValue: lesson,
               })(
                 <InputNumber min={1} max={9999999}/>,

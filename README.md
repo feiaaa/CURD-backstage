@@ -10,10 +10,6 @@ npm start
 > http://localhost:3005/articleList
 
 
-### 问题处理
-- 如果在打开时遇上 No 'Access-Control-Allow-Origin' header is present on the requested resource,
-请去下载插件[Allow-Control-Allow-Origin谷歌跨域扩展插件](https://download.csdn.net/download/zz975896590/10266971)
-
 ### 部署
 - [线上部署方式(根据自己的服务器的系统决定node包的版本)](https://blog.csdn.net/xerysherryx/article/details/78920978)
 - 总的描述就是：先在服务器上装node和npm (node包里这两个都有了)，然后把dva build，在把build完成的内容放在apache相关的文件夹下面。
@@ -29,6 +25,11 @@ npm run build
 - [dva社区(含图解和源码解析)](https://dvajs.com/guide/)
 - [mockjs](http://mockjs.com/dist/mock.js)
 - [dva使用mockjs](http://doc.okbase.net/tjc1996/archive/262169.html)
-- [路由问题解决](https://www.jianshu.com/p/649e97ff4354)
 
-### 
+### bug解决
+- [路由问题解决（hashHistory设置为browserhistory）](https://www.jianshu.com/p/649e97ff4354)
+- [react router升到4以后直接访问二级路由出错的解决办法](https://github.com/dkvirus/dva/issues/9)
+
+### 工具
+> 仅限于开发阶段的跨域问题，实际解决建议设置proxy
+- [Allow-Control-Allow-Origin谷歌跨域扩展插件](https://download.csdn.net/download/zz975896590/10266971)

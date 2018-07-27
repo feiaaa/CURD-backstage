@@ -2,12 +2,13 @@ import React from 'react';
 import { connect } from 'dva';
 import styles from '../MainLayout/MainLayout.less';
 import WordModal from './WordModal';
-import WordSearch from './WordSearch';
+// import WordSearch from './WordSearch';
 // 采用antd的UI组件
 import { Table,  Popconfirm,Button,Icon } from 'antd';
 
 
 function WordList({location, dispatch,list: dataSource, word,total,loading,current}) {
+  console.log(total,'total');
   //CURD funtion start
   function createHandler(values) {
     dispatch({
@@ -96,14 +97,14 @@ function WordList({location, dispatch,list: dataSource, word,total,loading,curre
   const pagination = {
     showQuickJumper:true,
     total,
-    current,
-    particleTypeSize: 10,
+    current:current+1,
+    pageSize: 20,
     onChange: (current)=>{pageChangeHandler(current)},
   };
   return (
     <div>
       <div className={`${styles.searchForm} ${styles.overflow}`}>
-        <WordSearch/>
+        {/*<WordSearch/>*/}
         <WordModal record={{}} onOk={createHandler}>
           <Button type="primary">
             <Icon type="plus" />新增</Button>
@@ -114,14 +115,13 @@ function WordList({location, dispatch,list: dataSource, word,total,loading,curre
         dataSource={dataSource}
         loading={loading}
         rowKey={record => record.wordId}
-        pagination={pagination+1}
+        pagination={pagination}
       />
     </div>
   );
 }
 
 function mapStateToProps(state) {
-  console.log(state,'state in wordlist');
   const { list, total, current } = state.word;
   return {
     loading: state.word.loading,
