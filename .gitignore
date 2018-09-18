@@ -8,8 +8,9 @@
 
 # misc
 /.idea
-/utils/config.js
+/src/utils/config.js
 .DS_Store
 npm-debug.log*
 .roadhogrc
 package-lock.json
+

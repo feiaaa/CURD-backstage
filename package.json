@@ -17,6 +17,7 @@
     "history": "^4.7.2",
     "mockjs": "^1.0.1-beta3",
     "prop-types": "^15.6.1",
+    "qs": "^6.5.2",
     "query-string": "^4.3.4",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

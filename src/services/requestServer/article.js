@@ -1,7 +1,7 @@
 import request from '../../utils/request';
 import { target } from '../../utils/config.js';
 import axios from 'axios';
-
+import qs from "qs";
 
 export async function query(values) {
   //普通axios尝试连接正式数据库(数据ok，跨域需要安装谷歌插件)
@@ -25,7 +25,7 @@ export async function query(values) {
       method:'GET',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-        'Access-Control-Allow-Origin': '*'
+         //'Access-Control-Allow-Origin': '*'
       },
     }
   );
@@ -33,14 +33,18 @@ export async function query(values) {
 //添加
 export async function create(values) {
 
-  var params = new URLSearchParams()
-  params.append('type', 'add')
-  params.append('data',JSON.stringify(values));
-
+  // var params = new URLSearchParams()
+  // params.append('type', 'add')
+  // params.append('data',JSON.stringify(values));
+  var params={
+    'type':'add',
+    'data':JSON.stringify(values)
+  }
+  params=qs.stringify(params);
   return axios.post(`${target}/cat/Articles`,params, {
     headers: {
       'content-type': 'application/x-www-form-urlencoded',
-      'Access-Control-Allow-Origin': '*'
+      // 'Access-Control-Allow-Origin': '*'
     },
   })
     .then(function (response) {
@@ -50,14 +54,18 @@ export async function create(values) {
 }
 //编辑
 export function patch(id, values) {
-  var params = new URLSearchParams()
-  params.append('type', 'update')
-  params.append('data',JSON.stringify(values));
-
+  // var params = new URLSearchParams()
+  // params.append('type', 'update')
+  // params.append('data',JSON.stringify(values));
+  var params={
+    'type':'update',
+    'data':JSON.stringify(values)
+  }
+  params=qs.stringify(params);
   return axios.post(`${target}/cat/Articles`,params, {
     headers: {
       'content-type': 'application/x-www-form-urlencoded',
-      'Access-Control-Allow-Origin': '*'
+      // 'Access-Control-Allow-Origin': '*'
     },
   })
     .then(function (response) {
@@ -69,14 +77,19 @@ export function patch(id, values) {
 }
 //删除
 export function remove(id) {
-  var params = new URLSearchParams()
-  params.append('type', 'delete')
-  params.append('id',id);
+  // var params = new URLSearchParams()
+  // params.append('type', 'delete')
+  // params.append('id',id);
+  var params={
+    'type':'delete',
+    'id':id
+  }
+  params=qs.stringify(params);
 
   return axios.post(`${target}/cat/Articles`,params, {
     headers: {
       'content-type': 'application/x-www-form-urlencoded',
-      'Access-Control-Allow-Origin': '*'
+      // 'Access-Control-Allow-Origin': '*'
     },
   })
     .then(function (response) {
