@@ -3,6 +3,7 @@ import dynamic from 'dva/dynamic';
 import { Router, Route, Switch, } from 'dva/router';
 import Login from './routes/Login';
 function RouterConfig({ history,app }) {
+  console.log('router.js');
   const WordPage = dynamic({
     app,
     models: () => [

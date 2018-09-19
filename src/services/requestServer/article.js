@@ -17,6 +17,7 @@ export async function query(values) {
   //     console.log(error);
   //   });
 
+  console.log(values,'params in serve');
 
   return request.get(`${target}/cat/Articles?page=${values.page}`,
     {
@@ -25,14 +26,13 @@ export async function query(values) {
       method:'GET',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
-         //'Access-Control-Allow-Origin': '*'
       },
     }
   );
 }
 //添加
 export async function create(values) {
-
+  // 这个开发环境没问题，线上扑街
   // var params = new URLSearchParams()
   // params.append('type', 'add')
   // params.append('data',JSON.stringify(values));

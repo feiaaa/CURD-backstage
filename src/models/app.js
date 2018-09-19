@@ -30,7 +30,7 @@ export default {
 
       if(res.data.code===-1)
       {
-        alert(res.data.message);
+        alert(res.data.msg);
       }
       else if(res.data.code===1000)
       {
