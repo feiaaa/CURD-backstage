@@ -2,7 +2,7 @@
 
 ### 简介
 使用了dva写的一个CURD系统。如果缺少服务器，本项目带了mockjs，切换即可
-[体验地址(没备案，所以显示不安全)](http://www.niwa.club)
+
 线上部署的方法，见文件夹下的word文档。
 ### 效果图
 
@@ -12,8 +12,8 @@ npm install
 npm start
 ```
 ### 目前可以看到的网页
-> http://localhost:3005/ 
-> 用户名 guest 密码123456
+> [体验地址(没备案，所以显示不安全)](http://www.niwa.club)
+> 用户名 guest 密码guests
 > 
 
 ### 部署
