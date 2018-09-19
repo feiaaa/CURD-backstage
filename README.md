@@ -5,7 +5,7 @@
 
 线上部署的方法，见文件夹下的word文档。
 ### 效果图
-
+![效果gif](https://github.com/feiaaa/CURD-backstage/blob/master/static/final.gif)
 ### 运行方法
 ```
 npm install
