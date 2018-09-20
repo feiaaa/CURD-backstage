@@ -12,13 +12,17 @@ npm install
 npm start
 ```
 ### 目前可以看到的网页
-> [体验地址(没备案，所以显示不安全)](http://www.niwa.club)
+> [体验地址(备案中，所以显示不安全)](http://www.niwa.club)
 > 用户名 guest 密码guests
 > 
 
 ### 部署
 - [线上部署方式(根据自己的服务器的系统决定node包的版本)](https://blog.csdn.net/xerysherryx/article/details/78920978)
 - 总的描述就是：先在服务器上装node和npm (node包里这两个都有了)，然后把dva build，在把build完成的内容放在apache相关的文件夹下面。
+- [证书申请](https://cloud.tencent.com/document/product/400/6814)
+- [ssl证书安装(https://cloud.tencent.com/document/product/400/4143)
+
+### 打包
 ```
 npm run build
 ```
