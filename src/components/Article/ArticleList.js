@@ -8,7 +8,6 @@ import { Table,  Popconfirm,Button,Icon } from 'antd';
 
 
 function ArticleList({location, dispatch,list: dataSource, article,total,loading,current}) {
-
   //CURD funtion start
   function createHandler(values) {
     dispatch({
@@ -86,7 +85,7 @@ function ArticleList({location, dispatch,list: dataSource, article,total,loading
   const pagination = {
     showQuickJumper:true,
     total,
-    current,
+    current:current+1,
     particleTypeSize: 10,
     onChange: (current)=>{pageChangeHandler(current)},
   };
@@ -105,7 +104,7 @@ function ArticleList({location, dispatch,list: dataSource, article,total,loading
         dataSource={dataSource}
         loading={loading}
         rowKey={record => record.id}
-        pagination={pagination+1}
+        pagination={pagination}
       />
 
 
@@ -115,7 +114,6 @@ function ArticleList({location, dispatch,list: dataSource, article,total,loading
 
 function mapStateToProps(state) {
   const { list, total, current } = state.article;
-  console.log({total},'total');
   return {
     loading: state.article.loading,
     list,

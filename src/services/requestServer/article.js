@@ -16,9 +16,6 @@ export async function query(values) {
   //   .catch(function (error) {
   //     console.log(error);
   //   });
-
-  console.log(values,'params in serve');
-
   return request.get(`${target}/cat/Articles?page=${values.page}`,
     {
     //   page:params.page
