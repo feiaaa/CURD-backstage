@@ -12,7 +12,7 @@ npm install
 npm start
 ```
 ### 目前可以看到的网页
-> [体验地址(备案中，所以显示不安全)](http://www.niwa.club)
+> [近期服务器搬家页面暂停展示](http://www.niwa.club)
 > 用户名 guest 密码guests
 > 
 
