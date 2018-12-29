@@ -43,7 +43,13 @@ npm run build
 - [使用browserHistory，部署以后点击浏览器刷新404的解决办法](https://github.com/LoeiFy/Recordum/issues/15)：Nginx里要配置+文件夹里生成一个indexHTML
 - [部署以后首次加载过慢的解决办法](https://github.com/dvajs/dva/issues/1128):把无关的页面先分出来
 - [axios 使用post方式传递参数，后端接受不到](https://segmentfault.com/a/1190000012635783)
+
 ### 工具
 > 开发阶段的跨域问题，
 - 法1：roadhog的配置文件设置proxy
 - 法2：[Allow-Control-Allow-Origin谷歌跨域扩展插件](https://download.csdn.net/download/zz975896590/10266971)
+
+
+### 升级
+-[package内检查更新升级](https://www.npmjs.com/package/npm-check-updates)
+-[Npm使用npm-check选择升级所有可更新包(全局+局部) + 项目单个依赖](https://blog.csdn.net/pcaxb/article/details/81773475)
