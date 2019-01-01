@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Breadcrumb, Icon } from 'antd';
+import { Breadcrumb, Icon ,Link} from 'antd';
 import styles from './MainLayout.less';
 // var notes='';
 class BreadcrumbCustom extends Component {
   constructor(props) {
     super(props);
+    console.log(props,'propr')
     this.state = {
 
     };
@@ -14,6 +15,7 @@ class BreadcrumbCustom extends Component {
   }
   // 分段面包屑的位置，字段 start
   getbreadcrumbPath(str, lvl) {
+    console.log(str,'str')
     let path = '#/';
     const arr = str.replace(/\?/, '/').split('/');
     if (lvl === 1) {
@@ -58,16 +60,17 @@ class BreadcrumbCustom extends Component {
   render() {
     const routes = [
       {
-        path: this.getbreadcrumbPath(window.location.pathname, 1),
-        breadcrumbName: this.getbreadcrumbName(window.location.pathname, 1),
+        path: this.getbreadcrumbPath(this.props.location.pathname, 1),
+        breadcrumbName: this.getbreadcrumbName(this.props.location.pathname, 1),
       }, {
-        path: this.getbreadcrumbPath(window.location.pathname, 2),
-        breadcrumbName: this.getbreadcrumbName(window.location.pathname, 2),
+        path: this.getbreadcrumbPath(this.props.location.pathname, 2),
+        breadcrumbName: this.getbreadcrumbName(this.props.location.pathname, 2),
       }];
     function itemRender(route, params, routes, paths) {
       const last = routes.indexOf(route) === routes.length - 1;
-      // return last ? <span>{route.breadcrumbName}</span> : <Link to={paths.join('/')}>{route.breadcrumbName}</Link>;
-      return last ? <span>{route.breadcrumbName}</span> : <span>{route.breadcrumbName}</span>;
+      console.log(route, params, routes, paths,'itemerner')
+      return last ? <span>{route.breadcrumbName}</span> : <span to={paths.join('/')}>{route.breadcrumbName}</span>;// hashhistory 打开这个
+      // return last ? <span>{route.breadcrumbName}</span> : <span>{route.breadcrumbName}</span>;//browserhistory打开这个
     }
     return (
       <div className={styles.flexCont}>

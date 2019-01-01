@@ -13,7 +13,7 @@ function MainLayout({ children, location }) {
       <div className={styles.content}>
 
         <Header location={location} />
-        <div className={styles.breadCrumb}> <BreadcrumbCustom /></div>
+        <div className={styles.breadCrumb}> <BreadcrumbCustom location={location}/></div>
         <div className={styles.main}>
           {children}
         </div>

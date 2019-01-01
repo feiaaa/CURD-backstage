@@ -12,7 +12,7 @@ npm install
 npm start
 ```
 ### 目前可以看到的网页
-> [近期服务器搬家页面暂停展示](http://www.niwa.club)
+> [新服务器备案中请用ip查看](47.100.114.212)
 > 用户名 guest 密码guests
 > 
 
@@ -49,6 +49,12 @@ npm run build
 - 法1：roadhog的配置文件设置proxy
 - 法2：[Allow-Control-Allow-Origin谷歌跨域扩展插件](https://download.csdn.net/download/zz975896590/10266971)
 
+### xshell 指令
+> 快速查找nginx.conf，根据指令确定文件存放在什么地方
+```
+nginx -t
+```
+> 【tips】首次打开速度慢
 
 ### 升级
 -[package内检查更新升级](https://www.npmjs.com/package/npm-check-updates)

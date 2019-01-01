@@ -1,9 +1,9 @@
 import dva from 'dva';
 import './index.css';
 import 'antd/dist/antd.css';
-import  browserHistory   from 'history/createBrowserHistory';
-var history=browserHistory();
-
+// import  browserHistory   from 'history/createBrowserHistory';// browserhistory打开这个
+// var history=browserHistory();// browserhistory打开这个
+var history;// hashhistory 打开这个
 // 1. Initialize
 const app = dva({
    history: history,
