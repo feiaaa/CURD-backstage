@@ -12,7 +12,7 @@ npm install
 npm start
 ```
 ### 目前可以看到的网页
-> [新服务器备案中请用ip查看](47.100.114.212)
+> [点这里](http://niwa.club)
 > 用户名 guest 密码guests
 > 
 
